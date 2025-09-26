@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bombay Dyeing Real Estate | Luxury Residences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover premium residences by Bombay Dyeing Real Estate. Explore luxury apartments and find your dream home today.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fg: #333333;
+      --bg: #F4F6F7;
+      --muted: #999999;
+      --accent: #D64541;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Open Sans', sans-serif;color:var(--fg);background:var(--bg)}
+    h1,h2,h3{font-family:'Roboto Slab', serif;}
+    .wrap{max-width:1000px;margin:0 auto;padding:20px}
+    .crumb{font-size:14px;color:var(--muted);margin:12px 0}
+    .hero-overlay {position:relative; height:350px; background:url('{{HERO_IMAGE}}') center/cover no-repeat; border-radius:10px;}
+    .hero-overlay::before {
+      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.3);
+      border-radius:10px;
+    }
+    .hero-text {
+      position:absolute; bottom:24px; left:24px; color:#ffffff; z-index:1;
+      max-width:600px;
+    }
+    .hero-text h1 {font-size:34px; margin:0 0 12px; line-height:1.2;}
+    .hero-text p.sub {font-size:18px; margin:0 0 20px;}
+    .cta {display:inline-block;padding:14px 22px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;}
+    section {margin-top:30px;}
+    .benefits-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:30px; }
+    .benefits-strip .item {background:var(--fg); color:var(--bg); padding:16px; border-radius:8px; text-align:center; font-size:15px;}
+    section.faq {margin-top:20px;}
+    details{border:1px solid rgba(0,0,0,0.1);border-radius:6px;padding:12px;margin:10px 0;background:var(--bg);}
+    summary{cursor:pointer;font-weight:700;color:var(--fg);}
+    footer{margin-top:40px;font-size:14px;color:var(--muted);text-align:center;}
+    @media(max-width:768px){
+      .hero-overlay {height:250px;}
+      .hero-text h1 {font-size:28px;}
+      .hero-text p.sub {font-size:16px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="crumb">Bombay Dyeing</div>
+    <header class="hero-overlay">
+      <div class="hero-text">
+        <h1>Experience Unparalleled Luxury Living with Bombay Dyeing</h1>
+        <p class="sub">Invest in a legacy of trust and exceptional quality with our exclusive residential offerings.</p>
+        <div class="cta-wrapper">Explore Available Residences</div>
+      </div>
+    </header>
+
+    <section class="benefits-strip">
+      add(
+  "<li>";
+  replace(
+    replace(; "\n"; "</li><li>");
+    ",";
+    "</li><li>"
+  );
+  "</li>"
+)
+    </section>
+
+    <section class="faq">
+      replace(
+  replace(
+    replace(; '{"q":"'; '<details><summary>');
+    '","a":"'; '</summary><p>'
+  );
+  '"},'; '</p></details>'
+)
+    </section>
+
+    <footer>
+      <div>{{LEGAL}}</div>
+    </footer>
+  </div>
+</body>
+</html>
