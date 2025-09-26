@@ -5,10 +5,18 @@
   <title>{{PAGE_TITLE}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{META_DESC}}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root { {{CSS_VARS}} }
+    :root {
+      --fg: #333333;
+      --bg: #F4F6F7;
+      --muted: #999999;
+      --accent: #D64541;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:{{FONT_FAMILY}};color:var(--fg);background:var(--bg)}
+    body{margin:0;font-family:'Open Sans', sans-serif;color:var(--fg);background:var(--bg)}
+    h1,h2,h3{font-family:'Roboto Slab', serif;}
     .wrap{max-width:1000px;margin:0 auto;padding:20px}
     .crumb{font-size:14px;color:var(--muted);margin:12px 0}
     .hero-overlay {position:relative; height:350px; background:url('{{HERO_IMAGE}}') center/cover no-repeat; border-radius:10px;}
@@ -24,7 +32,6 @@
     .hero-text h1 {font-size:34px; margin:0 0 12px; line-height:1.2;}
     .hero-text p.sub {font-size:18px; margin:0 0 20px;}
     .cta {display:inline-block;padding:14px 22px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;}
-
     section {margin-top:30px;}
     .benefits-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:30px; }
     .benefits-strip .item {background:var(--fg); color:var(--bg); padding:16px; border-radius:8px; text-align:center; font-size:15px;}
