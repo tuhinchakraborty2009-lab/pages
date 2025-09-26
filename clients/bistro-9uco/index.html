@@ -6,57 +6,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Discover exclusive real estate listings with Bistro. Find your perfect home or investment property today.">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --fg: #1F3A52;
-      --bg: #FFFFFF;
-      --muted: #778CA3;
-      --accent: #D35400;
+      --fg: #333333;
+      --bg: #F4F6F7;
+      --muted: #999999;
+      --accent: #D64541;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:'Source Sans Pro', sans-serif;color:var(--fg);background:var(--bg)}
-    h1,h2,h3{font-family:'Montserrat', sans-serif;}
+    body{margin:0;font-family:'Open Sans', sans-serif;color:var(--fg);background:var(--bg)}
+    h1,h2,h3{font-family:'Roboto Slab', serif;}
     .wrap{max-width:1000px;margin:0 auto;padding:20px}
     .crumb{font-size:14px;color:var(--muted);margin:12px 0}
-    .hero-split{display:flex; align-items:center; gap:24px; padding:30px 0;}
-    .hero-split .left { flex:1; }
-    .hero-split .right { width:45%; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    .hero-split .right img { width:100%; height:auto; display:block; object-fit:cover; }
-    h1{font-size:32px; margin-top:0;margin-bottom:14px;}
-    .sub{color:var(--muted); font-size:17px; margin-bottom:20px;}
-    .cta{display:inline-block;padding:12px 20px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;}
-    ul.benefits {padding-left:20px;margin:16px 0;}
-    ul.benefits li {margin:8px 0;font-size:15px;}
+    .hero-overlay {position:relative; height:350px; background:url('{{HERO_IMAGE}}') center/cover no-repeat; border-radius:10px;}
+    .hero-overlay::before {
+      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.3);
+      border-radius:10px;
+    }
+    .hero-text {
+      position:absolute; bottom:24px; left:24px; color:#ffffff; z-index:1;
+      max-width:600px;
+    }
+    .hero-text h1 {font-size:34px; margin:0 0 12px; line-height:1.2;}
+    .hero-text p.sub {font-size:18px; margin:0 0 20px;}
+    .cta {display:inline-block;padding:14px 22px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;}
     section {margin-top:30px;}
-    .faq {margin-top:28px;}
-    details{border:1px solid rgba(0,0,0,0.15);border-radius:6px;padding:12px;margin:10px 0;background:var(--bg);}
+    .benefits-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:30px; }
+    .benefits-strip .item {background:var(--fg); color:var(--bg); padding:16px; border-radius:8px; text-align:center; font-size:15px;}
+    section.faq {margin-top:20px;}
+    details{border:1px solid rgba(0,0,0,0.1);border-radius:6px;padding:12px;margin:10px 0;background:var(--bg);}
     summary{cursor:pointer;font-weight:700;color:var(--fg);}
-    footer {margin-top:40px;font-size:14px;color:var(--muted);text-align:center;}
+    footer{margin-top:40px;font-size:14px;color:var(--muted);text-align:center;}
     @media(max-width:768px){
-      .hero-split{flex-direction:column;}
-      .hero-split .right {width:100%;}
-      h1{font-size:28px;}
+      .hero-overlay {height:250px;}
+      .hero-text h1 {font-size:28px;}
+      .hero-text p.sub {font-size:16px;}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="crumb">Bistro</div>
-    <header class="hero-split">
-      <div class="left">
+    <header class="hero-overlay">
+      <div class="hero-text">
         <h1>Unlock Your Dream Property with Bistro Real Estate</h1>
         <p class="sub">We simplify the real estate process, making it seamless and rewarding.</p>
         <div class="cta-wrapper">Explore Exclusive Listings Now</div>
       </div>
-      <div class="right" aria-hidden="true">
-        <img src="{{HERO_IMAGE}}" alt="" />
-      </div>
     </header>
 
-    <section>
-      <ul class="benefits">
-        add(
+    <section class="benefits-strip">
+      add(
   "<li>";
   replace(
     replace(; "\n"; "</li><li>");
@@ -65,7 +67,6 @@
   );
   "</li>"
 )
-      </ul>
     </section>
 
     <section class="faq">
