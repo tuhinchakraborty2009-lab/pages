@@ -5,10 +5,18 @@
   <title>Bistro Real Estate: Find Your Dream Property</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Discover exclusive real estate listings with Bistro. Find your perfect home or investment property today.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root { {{CSS_VARS}} }
+    :root {
+      --fg: #1F3A52;
+      --bg: #FFFFFF;
+      --muted: #778CA3;
+      --accent: #D35400;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:{{FONT_FAMILY}};color:var(--fg);background:var(--bg)}
+    body{margin:0;font-family:'Source Sans Pro', sans-serif;color:var(--fg);background:var(--bg)}
+    h1,h2,h3{font-family:'Montserrat', sans-serif;}
     .wrap{max-width:1000px;margin:0 auto;padding:20px}
     .crumb{font-size:14px;color:var(--muted);margin:12px 0}
     .hero-split{display:flex; align-items:center; gap:24px; padding:30px 0;}
@@ -48,12 +56,26 @@
 
     <section>
       <ul class="benefits">
-        Access exclusive listings not found anywhere else., Receive personalized guidance from expert real estate advisors., Secure the best possible deal with our negotiation expertise.
+        add(
+  "<li>";
+  replace(
+    replace(; "\n"; "</li><li>");
+    ",";
+    "</li><li>"
+  );
+  "</li>"
+)
       </ul>
     </section>
 
     <section class="faq">
-      {"q":"What areas do you serve?","a":"We specialize in properties throughout the greater metropolitan area and surrounding counties. Contact us to confirm coverage in your specific location."}, {"q":"How much do your services cost?","a":"Our fees are structured to align with your success. We offer transparent pricing and will discuss all costs upfront."}
+      replace(
+  replace(
+    replace(; '{"q":"'; '<details><summary>');
+    '","a":"'; '</summary><p>'
+  );
+  '"},'; '</p></details>'
+)
     </section>
 
     <footer>
