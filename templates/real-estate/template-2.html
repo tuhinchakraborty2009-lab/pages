@@ -5,10 +5,18 @@
   <title>{{PAGE_TITLE}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{META_DESC}}">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root { {{CSS_VARS}} }
+    :root {
+      --fg: #1F3A52;
+      --bg: #FFFFFF;
+      --muted: #778CA3;
+      --accent: #D35400;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:{{FONT_FAMILY}};color:var(--fg);background:var(--bg)}
+    body{margin:0;font-family:'Source Sans Pro', sans-serif;color:var(--fg);background:var(--bg)}
+    h1,h2,h3{font-family:'Montserrat', sans-serif;}
     .wrap{max-width:1000px;margin:0 auto;padding:20px}
     .crumb{font-size:14px;color:var(--muted);margin:12px 0}
     .hero-split{display:flex; align-items:center; gap:24px; padding:30px 0;}
