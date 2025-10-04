@@ -1,107 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{{PAGE_TITLE}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{META_DESC}}">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Fira+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{HEADLINE}}</title>
   <style>
-    :root {
-      --fg: #111111;
-      --bg: #F9F7F4;
-      --muted: #7A7A7A;
-      --accent: #997A2D;
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background-color: #fafafa;
+      color: #222;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Fira Sans', sans-serif;color:var(--fg);background:var(--bg)}
-    h1,h2,h3{font-family:'Playfair Display', serif;}
-    .wrap{max-width:1000px;margin:0 auto;padding:20px}
-    .crumb{font-size:14px;color:var(--muted);margin:12px 0}
+
+    /* Hero Section */
     .hero {
       position: relative;
-      background:url('{{HERO_IMAGE}}') center/cover no-repeat;
-      height: 400px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: #ffffff;
+      width: 100%;
+      height: 60vh;
+      background-image: url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-1.png'); /* Replace dynamically via Make */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 40px;
     }
-    .hero-overlay {
-      position:absolute;
-      top:0; left:0; right:0; bottom:0;
-      background:rgba(0,0,0,0.4);
-    }
-    .hero-content {
-      position: relative;
-      text-align:center;
-      max-width:700px;
-      padding:0 20px;
-    }
-    .hero-content h1 { font-size:36px; margin-bottom:16px; line-height:1.2; }
-    .hero-content .sub { font-size:18px; color:#f0f0f0; margin-bottom:20px; }
-    .hero-content .cta-wrapper { margin-bottom:20px; }
-    .cta {display:inline-block;padding:14px 22px;border-radius:8px;background:var(--accent);color:#ffffff;text-decoration:none;font-weight:700;}
-    section {margin-top:32px;}
-    ul.benefits {padding-left:20px;margin:16px 0;}
-    ul.benefits li {margin:8px 0;font-size:16px;color:var(--fg);}
-    .faq {margin-top:28px;}
-    details {border:1px solid rgba(0,0,0,0.1);border-radius:6px;padding:12px;margin:10px 0;background:var(--bg);}
-    summary {cursor:pointer;font-weight:700;color:var(--fg);}
-    footer {margin-top:40px;font-size:14px;color:var(--muted);text-align:center;}
 
-    /* Lead form (Tally) */
-    .lead-form iframe{width:100%;height:340px;border:0;margin-top:12px}
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    }
 
-    @media(max-width:768px){
-      .hero { height:260px; }
-      .hero-content h1 { font-size:28px; }
-      .hero-content .sub { font-size:16px; }
+    .hero p {
+      font-size: 20px;
+      font-weight: 300;
+      max-width: 700px;
+      margin: 10px auto;
+    }
+
+    /* Two-column section */
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .benefits, .form {
+      flex: 1;
+      min-width: 320px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .benefits h2, .faq h2 {
+      color: #0a2342;
+      font-size: 24px;
+      border-left: 4px solid #2e86de;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* FAQ Section */
+    .faq {
+      max-width: 1200px;
+      margin: 60px auto;
+      background: #f3f7fb;
+      border-radius: 10px;
+      padding: 40px;
+    }
+
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .content { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="crumb">{{BREADCRUMB}}</div>
-    <header class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>{{HEADLINE}}</h1>
-        <p class="sub">{{SUBHEAD}}</p>
-        <div class="cta-wrapper">{{CTA_HTML}}</div>
-      </div>
-    </header>
 
-    <section>
-      <ul class="benefits">
-        {{BENEFITS_HTML}}
-      </ul>
-    </section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>{{HEADLINE}}</h1>
+    <p>{{SUBHEAD}}</p>
+  </section>
 
-    <!-- Embedded Tally lead form (visible on the page) -->
-    <section class="lead-form">
-      <iframe
-        src="https://tally.so/embed/w8Oy75?hideTitle=1&transparentBackground=1&alignLeft=1"
-        title="Lead Form">
-      </iframe>
-      <script>
-        (function(){
-          var d=document, src="https://tally.so/widgets/embed.js";
-          if(!d.querySelector('script[src="'+src+'"]')){
-            var s=d.createElement("script"); s.src=src; d.body.appendChild(s);
-          }
-        })();
-      </script>
-    </section>
+  <!-- CONTENT SECTION -->
+  <section class="content">
+    <div class="benefits">
+      <h2>Key Benefits</h2>
+      {{BENEFITS_HTML}}
+    </div>
 
-    <section class="faq">
-      {{FAQ_HTML}}
-    </section>
+    <div class="form">
+      <h2>Get Your Free Market Snapshot</h2>
+      {{FORM_HTML}}
+    </div>
+  </section>
 
-    <footer>
-      <div>{{LEGAL}}</div>
-    </footer>
-  </div>
+  <!-- FAQ SECTION -->
+  <section class="faq">
+    <h2>FAQs</h2>
+    {{FAQ_HTML}}
+  </section>
+
+  <footer>
+    {{LEGAL}}
+  </footer>
 </body>
 </html>
