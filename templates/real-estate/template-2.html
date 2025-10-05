@@ -9,19 +9,22 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f6f3;
+    background: linear-gradient(to bottom, #faf8f4 0%, #fefcf8 60%, #fff8e1 100%);
     color: #333;
   }
 
+  /* HERO SECTION */
   .hero {
     position: relative;
-    height: 70vh;
-    background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE2.png') no-repeat center center/cover;
+    height: 80vh;
+    background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE2.png') center center no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
+    overflow: hidden;
   }
 
   .hero::after {
@@ -29,18 +32,21 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
   }
 
   .hero h1 {
     position: relative;
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    font-size: 3rem;
     max-width: 80%;
     z-index: 1;
     line-height: 1.2;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
   }
 
+  /* MAIN CONTENT */
   .content {
     display: flex;
     justify-content: space-between;
@@ -51,100 +57,82 @@
 
   .benefits, .insights {
     flex: 1;
-    min-width: 320px;
-    background: #ffffff;
+    min-width: 340px;
+    background: #ffffffcc;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+    backdrop-filter: blur(4px);
   }
 
   .benefits h2, .insights h2 {
     font-family: 'Playfair Display', serif;
-    color: #1c5d57;
-    font-size: 26px;
+    color: #0d3b38;
+    font-size: 1.6rem;
     margin-bottom: 20px;
+    border-left: 4px solid #d4af37;
+    padding-left: 10px;
   }
 
+  /* FORM SECTION */
   .form-section {
     margin: 60px 10%;
-    background: #fff;
+    background: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+    text-align: center;
   }
 
   .form-section h2 {
     font-family: 'Playfair Display', serif;
-    color: #1c5d57;
-    font-size: 26px;
+    color: #0d3b38;
+    font-size: 1.8rem;
     margin-bottom: 20px;
-    text-align: center;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
+  /* Placeholder where your Forminator form will be injected */
+  .form-container {
+    max-width: 700px;
     margin: 0 auto;
   }
 
-  input, textarea {
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    outline: none;
-  }
-
-  input:focus {
-    border-color: #1c5d57;
-  }
-
-  button {
-    background: linear-gradient(135deg, #d4af37, #f5c542);
-    color: #111;
-    font-weight: 600;
-    border: none;
-    padding: 14px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  button:hover {
-    background: linear-gradient(135deg, #f5c542, #ffd75f);
-  }
-
+  /* FAQ SECTION */
   .faq {
     margin: 80px 10%;
     background: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
   }
 
   .faq h2 {
     font-family: 'Playfair Display', serif;
-    color: #1c5d57;
-    font-size: 26px;
+    color: #0d3b38;
+    font-size: 1.6rem;
     margin-bottom: 20px;
   }
 
+  /* Responsive */
   @media (max-width: 768px) {
     .content {
       flex-direction: column;
+    }
+    .hero {
+      height: 60vh;
+      background-position: center;
     }
   }
 </style>
 </head>
 <body>
 
+  <!-- HERO SECTION -->
   <div class="hero">
     <h1>{{HEADLINE}}</h1>
   </div>
 
+  <!-- BENEFITS + INSIGHTS -->
   <div class="content">
     <div class="benefits">
       <h2>Benefits</h2>
@@ -157,16 +145,15 @@
     </div>
   </div>
 
+  <!-- FORMINATOR FORM -->
   <div class="form-section">
-    <h2>Get In Touch</h2>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email ID" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <button type="submit">Submit</button>
-    </form>
+    <h2>Get in Touch</h2>
+    <div class="form-container">
+      {{FORM_HTML}}
+    </div>
   </div>
 
+  <!-- FAQ SECTION -->
   <div class="faq">
     <h2>Frequently Asked Questions</h2>
     {{FAQ_HTML}}
