@@ -1,93 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{{PAGE_TITLE}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{META_DESC}}">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --fg: #333333;
-      --bg: #F4F6F7;
-      --muted: #999999;
-      --accent: #D64541;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Real Estate Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #fffaf3, #f7efe1, #fffdf8);
+    color: #222;
+  }
+
+  /* SPLIT HERO */
+  .hero {
+    display: flex;
+    height: 80vh;
+    overflow: hidden;
+    border-bottom: 3px solid #d4af37;
+  }
+
+  .hero-image {
+    flex: 1;
+    background: url('https://funnelmint.org/wp-content/uploads/2025/10/landing-page-RE3.png') center center no-repeat;
+    background-size: cover;
+  }
+
+  .hero-text {
+    flex: 1;
+    background: linear-gradient(to bottom right, #fffdf8 0%, #f8f5ef 80%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+  }
+
+  .hero-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: #0f3a3a;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 4px solid #d4af37;
+    padding-left: 10px;
+  }
+
+  .hero-text p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  /* HEADLINE */
+  .headline {
+    text-align: center;
+    margin: 70px 10% 30px 10%;
+  }
+
+  .headline h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #0f3a3a;
+    margin-bottom: 15px;
+  }
+
+  /* CONTENT SECTION */
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 60px 10%;
+    gap: 40px;
+  }
+
+  .benefits, .form-section {
+    flex: 1;
+    min-width: 340px;
+    background: #ffffffcc;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    padding: 30px;
+    backdrop-filter: blur(6px);
+  }
+
+  .benefits h2, .form-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #0f3a3a;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-left: 4px solid #d4af37;
+    padding-left: 10px;
+  }
+
+  /* FORMINATOR PLACEHOLDER */
+  .form-container {
+    margin-top: 20px;
+  }
+
+  /* FAQ SECTION */
+  .faq {
+    margin: 80px 10%;
+    background: linear-gradient(to bottom right, #fffdf7, #fff8e1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+  }
+
+  .faq h2 {
+    font-family: 'Playfair Display', serif;
+    color: #0f3a3a;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  /* SUBMIT BUTTON (FOR REFERENCE IF NEEDED INLINE) */
+  .submit-btn {
+    background-color: #d4af37;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .submit-btn:hover {
+    background-color: #b9942e;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      flex-direction: column;
+      height: auto;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Open Sans', sans-serif;color:var(--fg);background:var(--bg)}
-    h1,h2,h3{font-family:'Roboto Slab', serif;}
-    .wrap{max-width:1000px;margin:0 auto;padding:20px}
-    .crumb{font-size:14px;color:var(--muted);margin:12px 0}
-    .hero-overlay {position:relative; height:350px; background:url('{{HERO_IMAGE}}') center/cover no-repeat; border-radius:10px;}
-    .hero-overlay::before {
-      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.3);
-      border-radius:10px;
+    .hero-image {
+      height: 50vh;
     }
     .hero-text {
-      position:absolute; bottom:24px; left:24px; color:#ffffff; z-index:1;
-      max-width:600px;
+      padding: 40px 25px;
     }
-    .hero-text h1 {font-size:34px; margin:0 0 12px; line-height:1.2;}
-    .hero-text p.sub {font-size:18px; margin:0 0 20px;}
-    .cta {display:inline-block;padding:14px 22px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;}
-    section {margin-top:30px;}
-    .benefits-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:30px; }
-    .benefits-strip .item {background:var(--fg); color:var(--bg); padding:16px; border-radius:8px; text-align:center; font-size:15px;}
-    section.faq {margin-top:20px;}
-    details{border:1px solid rgba(0,0,0,0.1);border-radius:6px;padding:12px;margin:10px 0;background:var(--bg);}
-    summary{cursor:pointer;font-weight:700;color:var(--fg);}
-    footer{margin-top:40px;font-size:14px;color:var(--muted);text-align:center;}
-
-    /* Lead form (Tally) */
-    .lead-form iframe{width:100%;height:340px;border:0;margin-top:12px}
-
-    @media(max-width:768px){
-      .hero-overlay {height:250px;}
-      .hero-text h1 {font-size:28px;}
-      .hero-text p.sub {font-size:16px;}
+    .content {
+      flex-direction: column;
     }
-  </style>
+  }
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="crumb">{{BREADCRUMB}}</div>
-    <header class="hero-overlay">
-      <div class="hero-text">
-        <h1>{{HEADLINE}}</h1>
-        <p class="sub">{{SUBHEAD}}</p>
-        <div class="cta-wrapper">{{CTA_HTML}}</div>
-      </div>
-    </header>
 
-    <section class="benefits-strip">
-      {{BENEFITS_HTML}}
-    </section>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-text">
+      <h2>Market Insights</h2>
+      <p>{{INSIGHTS_HTML}}</p>
+    </div>
+  </section>
 
-    <!-- Embedded Tally lead form (visible on the page) -->
-    <section class="lead-form">
-      <iframe
-        src="https://tally.so/embed/w8Oy75?hideTitle=1&transparentBackground=1&alignLeft=1"
-        title="Lead Form">
-      </iframe>
-      <script>
-        (function(){
-          var d=document, src="https://tally.so/widgets/embed.js";
-          if(!d.querySelector('script[src="'+src+'"]')){
-            var s=d.createElement("script"); s.src=src; d.body.appendChild(s);
-          }
-        })();
-      </script>
-    </section>
-
-    <section class="faq">
-      {{FAQ_HTML}}
-    </section>
-
-    <footer>
-      <div>{{LEGAL}}</div>
-    </footer>
+  <!-- HEADLINE -->
+  <div class="headline">
+    <h1>{{HEADLINE}}</h1>
   </div>
+
+  <!-- BENEFITS + FORM -->
+  <section class="content">
+    <div class="benefits">
+      <h2>Key Benefits</h2>
+      {{BENEFITS_HTML}}
+    </div>
+    <div class="form-section">
+      <h2>Get in Touch</h2>
+      <div class="form-container">
+        {{FORM_HTML}}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    {{FAQ_HTML}}
+  </section>
+
 </body>
 </html>
