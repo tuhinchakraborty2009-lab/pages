@@ -1,92 +1,176 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{{PAGE_TITLE}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{META_DESC}}">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --fg: #1F3A52;
-      --bg: #FFFFFF;
-      --muted: #778CA3;
-      --accent: #D35400;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Source Sans Pro', sans-serif;color:var(--fg);background:var(--bg)}
-    h1,h2,h3{font-family:'Montserrat', sans-serif;}
-    .wrap{max-width:1000px;margin:0 auto;padding:20px}
-    .crumb{font-size:14px;color:var(--muted);margin:12px 0}
-    .hero-split{display:flex; align-items:center; gap:24px; padding:30px 0;}
-    .hero-split .left { flex:1; }
-    .hero-split .right { width:45%; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    .hero-split .right img { width:100%; height:auto; display:block; object-fit:cover; }
-    h1{font-size:32px; margin-top:0;margin-bottom:14px;}
-    .sub{color:var(--muted); font-size:17px; margin-bottom:20px;}
-    .cta{display:inline-block;padding:12px 20px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;}
-    ul.benefits {padding-left:20px;margin:16px 0;}
-    ul.benefits li {margin:8px 0;font-size:15px;}
-    section {margin-top:30px;}
-    .faq {margin-top:28px;}
-    details{border:1px solid rgba(0,0,0,0.15);border-radius:6px;padding:12px;margin:10px 0;background:var(--bg);}
-    summary{cursor:pointer;font-weight:700;color:var(--fg);}
-    footer {margin-top:40px;font-size:14px;color:var(--muted);text-align:center;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residential Real Estate Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f6f3;
+    color: #333;
+  }
 
-    /* Lead form (Tally) */
-    .lead-form iframe{width:100%;height:340px;border:0;margin-top:12px}
+  .hero {
+    position: relative;
+    height: 70vh;
+    background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE2.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
 
-    @media(max-width:768px){
-      .hero-split{flex-direction:column;}
-      .hero-split .right {width:100%;}
-      h1{font-size:28px;}
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .hero h1 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    max-width: 80%;
+    z-index: 1;
+    line-height: 1.2;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 80px 10%;
+  }
+
+  .benefits, .insights {
+    flex: 1;
+    min-width: 320px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+  }
+
+  .benefits h2, .insights h2 {
+    font-family: 'Playfair Display', serif;
+    color: #1c5d57;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .form-section {
+    margin: 60px 10%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+  }
+
+  .form-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #1c5d57;
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  input, textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: #1c5d57;
+  }
+
+  button {
+    background: linear-gradient(135deg, #d4af37, #f5c542);
+    color: #111;
+    font-weight: 600;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #f5c542, #ffd75f);
+  }
+
+  .faq {
+    margin: 80px 10%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+  }
+
+  .faq h2 {
+    font-family: 'Playfair Display', serif;
+    color: #1c5d57;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="crumb">{{BREADCRUMB}}</div>
-    <header class="hero-split">
-      <div class="left">
-        <h1>{{HEADLINE}}</h1>
-        <p class="sub">{{SUBHEAD}}</p>
-        <div class="cta-wrapper">{{CTA_HTML}}</div>
-      </div>
-      <div class="right" aria-hidden="true">
-        <img src="{{HERO_IMAGE}}" alt="" />
-      </div>
-    </header>
 
-    <section>
-      <ul class="benefits">
-        {{BENEFITS_HTML}}
-      </ul>
-    </section>
-
-    <!-- Embedded Tally lead form (visible on the page) -->
-    <section class="lead-form">
-      <iframe
-        src="https://tally.so/embed/w8Oy75?hideTitle=1&transparentBackground=1&alignLeft=1"
-        title="Lead Form">
-      </iframe>
-      <script>
-        (function(){
-          var d=document, src="https://tally.so/widgets/embed.js";
-          if(!d.querySelector('script[src="'+src+'"]')){
-            var s=d.createElement("script"); s.src=src; d.body.appendChild(s);
-          }
-        })();
-      </script>
-    </section>
-
-    <section class="faq">
-      {{FAQ_HTML}}
-    </section>
-
-    <footer>
-      <div>{{LEGAL}}</div>
-    </footer>
+  <div class="hero">
+    <h1>{{HEADLINE}}</h1>
   </div>
+
+  <div class="content">
+    <div class="benefits">
+      <h2>Benefits</h2>
+      {{BENEFITS_HTML}}
+    </div>
+
+    <div class="insights">
+      <h2>Market Insights</h2>
+      {{INSIGHTS_HTML}}
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h2>Get In Touch</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email ID" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    {{FAQ_HTML}}
+  </div>
+
 </body>
 </html>
