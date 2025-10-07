@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Estate Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #f9f9f9;
+    background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE-1.png') no-repeat center center/cover;
+    background-attachment: fixed;
+  }
+
+  .overlay {
+    background: rgba(0,0,0,0.55);
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 10%;
+    box-sizing: border-box;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: #d1d1d1;
+    margin: 0;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .benefits, .form-section {
+    flex: 1;
+    min-width: 320px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+
+  .benefits h2, .faq h2 {
+    font-family: 'Playfair Display', serif;
+    color: #f5c542;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  input, textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: #999;
+  }
+
+  button {
+    background: linear-gradient(135deg, #d4af37, #f5c542);
+    border: none;
+    color: #111;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #f5c542, #ffd75f);
+  }
+
+  .faq {
+    margin-top: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="hero">
+      <h1>Unlock Your Business Potential with Premium Space</h1>
+      <p>Market Insights</p>
+    </div>
+
+    <div class="content">
+      <div class="benefits">
+        <h2>Key Benefits</h2>
+        add(
+  "<li>";
+  replace(
+    replace(; "\n"; "</li><li>");
+    ",";
+    "</li><li>"
+  );
+  "</li>"
+)
+      </div>
+
+      <div class="form-section">
+        <h2>Enquire Now</h2>
+        <form>
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email ID" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="faq">
+      <h2>FAQs</h2>
+      replace(
+  replace(
+    replace(; '{"q":"'; '<details><summary>');
+    '","a":"'; '</summary><p>'
+  );
+  '"},'; '</p></details>'
+)
+    </div>
+  </div>
+</body>
+</html>
