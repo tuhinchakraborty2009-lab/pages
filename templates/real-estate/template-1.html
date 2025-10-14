@@ -4,7 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Real Estate Landing Page</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <style>
   body {
     margin: 0;
@@ -13,34 +15,41 @@
     background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE-1.png') no-repeat center center/cover;
     background-attachment: fixed;
   }
+
   .overlay {
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0,0,0,0.55);
     width: 100%;
     min-height: 100vh;
     padding: 60px 10%;
     box-sizing: border-box;
   }
+
   .hero {
     text-align: center;
     margin-bottom: 60px;
   }
+
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     margin-bottom: 10px;
     color: #fff;
+    letter-spacing: 1px;
   }
+
   .hero p {
     font-size: 18px;
     color: #d1d1d1;
     margin: 0;
   }
+
   .content {
     display: flex;
     justify-content: space-between;
     gap: 40px;
     flex-wrap: wrap;
   }
+
   .benefits, .form-section {
     flex: 1;
     min-width: 320px;
@@ -49,28 +58,71 @@
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
   }
+
   .benefits h2, .faq h2 {
     font-family: 'Playfair Display', serif;
     color: #f5c542;
     margin-bottom: 20px;
     font-size: 26px;
   }
-  iframe {
-    border: none;
-    width: 100%;
-    height: 600px;
-    border-radius: 10px;
-    background-color: #fff;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
+
+  input, select {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  input::placeholder {
+    color: #ccc;
+  }
+
+  label {
+    color: #f5c542;
+    font-size: 15px;
+  }
+
+  button {
+    background: linear-gradient(135deg, #d4af37, #f5c542);
+    border: none;
+    color: #111;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #f5c542, #ffd75f);
+  }
+
   .faq {
     margin-top: 80px;
     background: rgba(255, 255, 255, 0.05);
     padding: 40px;
     border-radius: 12px;
   }
+
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
-    .content { flex-direction: column; }
-    .hero h1 { font-size: 36px; }
+    .content {
+      flex-direction: column;
+    }
   }
 </style>
 </head>
@@ -90,15 +142,73 @@
 
       <div class="form-section">
         <h2>Enquire Now</h2>
-        <!-- Forminator form embedded via iframe -->
-        <iframe src="https://funnelmint.org/lead-gen-page/"></iframe>
+
+        <form id="leadForm" action="https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+          <input type="hidden" name="client_id" value="{{id}}" />
+
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email Address *" required />
+          <input type="tel" name="phone" placeholder="Phone Number *" pattern="[0-9+\-()\s]{7,}" required />
+
+          <label for="consent">I agree to be contacted</label>
+          <select name="consent" id="consent" required>
+            <option value="">Please select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+
+          <button type="submit" id="submitBtn">Submit</button>
+        </form>
       </div>
     </div>
 
     <div class="faq">
-      <h2>Frequently Asked Questions</h2>
+      <h2>FAQs</h2>
       {{FAQ_HTML}}
     </div>
   </div>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
+
+  const captchaResponse = grecaptcha.getResponse();
+  if (!captchaResponse) {
+    alert("Please verify that you're not a robot.");
+    btn.disabled = false;
+    btn.innerText = "Submit";
+    return;
+  }
+
+  const formData = new FormData(e.target);
+
+  try {
+    const response = await fetch(e.target.action, {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      alert("Thank you! Your details have been submitted successfully.");
+    } else {
+      alert("There was an issue submitting your request. Please try again.");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("There was an error submitting the form. Please try again later.");
+  } finally {
+    btn.disabled = false;
+    btn.innerText = "Submit";
+    grecaptcha.reset();
+  }
+});
+</script>
+
 </body>
 </html>
