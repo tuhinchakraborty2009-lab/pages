@@ -27,4 +27,130 @@
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
-    ma
+    margin-bottom: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    font-size: 18px;
+    color: #d1d1d1;
+    margin: 0;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .benefits, .form-section {
+    flex: 1;
+    min-width: 320px;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+  .benefits h2, .faq h2 {
+    font-family: 'Playfair Display', serif;
+    color: #f5c542;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  input {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+  }
+  input::placeholder { color: #999; }
+  button {
+    background: linear-gradient(135deg,#d4af37,#f5c542);
+    border: none;
+    color: #111;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover { background: linear-gradient(135deg,#f5c542,#ffd75f); }
+  .faq {
+    margin-top: 80px;
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 12px;
+  }
+  @media (max-width: 768px) {
+    .content { flex-direction: column; }
+    .hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="overlay">
+    <div class="hero">
+      <h1>{{HEADLINE}}</h1>
+      <p>Market Insights</p>
+    </div>
+
+    <div class="content">
+      <div class="benefits">
+        <h2>Key Benefits</h2>
+        {{BENEFITS_HTML}}
+      </div>
+
+      <div class="form-section">
+        <h2>Enquire Now</h2>
+        <form id="leadForm">
+          <input type="hidden" name="client_id" value="{{id}}" />
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+\-()\s]{7,}" required />
+          <button type="submit" id="submitBtn">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      {{FAQ_HTML}}
+    </div>
+  </div>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+    await fetch("https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6", {
+      method: "POST",
+      body: formData,
+      mode: "no-cors"
+    });
+    alert("✅ Test successful! Your request has been sent to Make.");
+  } catch (err) {
+    console.error(err);
+    alert("❌ There was an issue submitting your request. Please try again.");
+  } finally {
+    btn.disabled = false;
+    btn.innerText = "Submit";
+  }
+});
+</script>
+</body>
+</html>
