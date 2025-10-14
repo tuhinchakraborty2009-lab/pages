@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Real Estate Landing Page</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>
   body {
@@ -14,20 +15,17 @@
     background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE-1.png') no-repeat center center/cover;
     background-attachment: fixed;
   }
-
   .overlay {
-    background: rgba(0,0,0,0.55);
+    background: rgba(0, 0, 0, 0.55);
     width: 100%;
     min-height: 100vh;
     padding: 60px 10%;
     box-sizing: border-box;
   }
-
   .hero {
     text-align: center;
     margin-bottom: 60px;
   }
-
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
@@ -35,54 +33,48 @@
     color: #fff;
     letter-spacing: 1px;
   }
-
   .hero p {
     font-size: 18px;
     color: #d1d1d1;
     margin: 0;
   }
-
   .content {
     display: flex;
     justify-content: space-between;
     gap: 40px;
     flex-wrap: wrap;
   }
-
-  .benefits, .form-section {
+  .benefits,
+  .form-section {
     flex: 1;
     min-width: 320px;
     background: rgba(255, 255, 255, 0.05);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
-
-  .benefits h2, .faq h2 {
+  .benefits h2,
+  .faq h2 {
     font-family: 'Playfair Display', serif;
     color: #f5c542;
     margin-bottom: 20px;
     font-size: 26px;
   }
-
-  .form-section form {
+  form {
     display: flex;
     flex-direction: column;
     gap: 18px;
   }
-
-  input, textarea {
+  input {
     padding: 12px;
     border-radius: 6px;
     border: none;
     font-size: 16px;
     outline: none;
   }
-
   input::placeholder {
     color: #999;
   }
-
   button {
     background: linear-gradient(135deg, #d4af37, #f5c542);
     border: none;
@@ -94,26 +86,29 @@
     cursor: pointer;
     transition: 0.3s;
   }
-
   button:hover {
     background: linear-gradient(135deg, #f5c542, #ffd75f);
   }
-
   button.loading {
     opacity: 0.7;
     pointer-events: none;
   }
-
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
+  }
   .faq {
     margin-top: 80px;
     background: rgba(255, 255, 255, 0.05);
     padding: 40px;
     border-radius: 12px;
   }
-
   @media (max-width: 768px) {
     .content {
       flex-direction: column;
+    }
+    .hero h1 {
+      font-size: 36px;
     }
   }
 </style>
@@ -134,18 +129,27 @@
 
       <div class="form-section">
         <h2>Enquire Now</h2>
-        <form id="leadForm" action="https://hook.make.com/https://hook.eu2.make.com/b2w8hvcfouaqaglkl642lvf5ge8do0cu" method="POST">
-          <input type="hidden" name="client_id" value="{{id}}">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email ID" required>
-          <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+        <form id="leadForm" action="https://hook.make.com/YOUR_WEBHOOK_URL" method="POST">
+          <!-- Hidden Client ID -->
+          <input type="hidden" name="client_id" value="{{id}}" />
+
+          <!-- Honeypot -->
+          <input type="text" name="company" style="display:none !important;" tabindex="-1" autocomplete="off" />
+
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+\-()\s]{7,}" required />
+
+          <!-- reCAPTCHA -->
+          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+
           <button type="submit" id="submitBtn">Submit</button>
         </form>
       </div>
     </div>
 
     <div class="faq">
-      <h2>FAQs</h2>
+      <h2>Frequently Asked Questions</h2>
       {{FAQ_HTML}}
     </div>
   </div>
@@ -158,10 +162,19 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   btn.classList.add("loading");
   btn.innerText = "Submitting...";
 
-  const formData = new FormData(this);
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const captchaResponse = grecaptcha.getResponse();
+  if (!captchaResponse) {
+    alert("Please verify that you're not a robot.");
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
+    return;
+  }
 
   try {
-    const response = await fetch(this.action, {
+    const response = await fetch(form.action, {
       method: "POST",
       body: formData
     });
@@ -178,6 +191,7 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   } finally {
     btn.classList.remove("loading");
     btn.innerText = "Submit";
+    grecaptcha.reset();
   }
 });
 </script>
