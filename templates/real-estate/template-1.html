@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Estate Landing Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
   body {
     margin: 0;
@@ -98,6 +99,11 @@
     background: linear-gradient(135deg, #f5c542, #ffd75f);
   }
 
+  button.loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
   .faq {
     margin-top: 80px;
     background: rgba(255, 255, 255, 0.05);
@@ -112,6 +118,7 @@
   }
 </style>
 </head>
+
 <body>
   <div class="overlay">
     <div class="hero">
@@ -127,11 +134,12 @@
 
       <div class="form-section">
         <h2>Enquire Now</h2>
-        <form>
-          <input type="text" placeholder="Name" required>
-          <input type="email" placeholder="Email ID" required>
-          <input type="tel" placeholder="Phone Number" required>
-          <button type="submit">Submit</button>
+        <form id="leadForm" action="https://hook.make.com/YOUR_WEBHOOK_URL" method="POST">
+          <input type="hidden" name="client_id" value="{{id}}">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email ID" required>
+          <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+          <button type="submit" id="submitBtn">Submit</button>
         </form>
       </div>
     </div>
@@ -141,5 +149,37 @@
       {{FAQ_HTML}}
     </div>
   </div>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  btn.classList.add("loading");
+  btn.innerText = "Submitting...";
+
+  const formData = new FormData(this);
+
+  try {
+    const response = await fetch(this.action, {
+      method: "POST",
+      body: formData
+    });
+    const result = await response.json();
+
+    if (result.redirect) {
+      window.open(result.redirect, "_blank");
+    } else {
+      alert("Thank you! We’ll contact you soon.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("There was an issue submitting your request. Please try again.");
+  } finally {
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
+  }
+});
+</script>
 </body>
 </html>
