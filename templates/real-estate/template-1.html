@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Real Estate Landing Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <style>
   body {
     margin: 0;
@@ -81,6 +83,14 @@
     transition: 0.3s;
   }
   button:hover { background: linear-gradient(135deg,#f5c542,#ffd75f); }
+  button.loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
+  }
   .faq {
     margin-top: 80px;
     background: rgba(255,255,255,0.05);
@@ -114,6 +124,10 @@
           <input type="text" name="name" placeholder="Full Name" required />
           <input type="email" name="email" placeholder="Email Address" required />
           <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+\-()\s]{7,}" required />
+
+          <!-- Google reCAPTCHA -->
+          <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+
           <button type="submit" id="submitBtn">Submit</button>
         </form>
       </div>
@@ -136,19 +150,31 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   const form = e.target;
   const formData = new FormData(form);
 
+  // Add reCAPTCHA token
+  const captchaResponse = grecaptcha.getResponse();
+  if (!captchaResponse) {
+    alert("⚠️ Please verify that you're not a robot.");
+    btn.disabled = false;
+    btn.innerText = "Submit";
+    return;
+  }
+  formData.append("g-recaptcha-response", captchaResponse);
+
   try {
     await fetch("https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6", {
       method: "POST",
       body: formData,
       mode: "no-cors"
     });
-    alert("✅ Test successful! Your request has been sent to Make.");
+
+    alert("✅ Submission successful! Check your Make webhook for the new data.");
   } catch (err) {
     console.error(err);
     alert("❌ There was an issue submitting your request. Please try again.");
   } finally {
     btn.disabled = false;
     btn.innerText = "Submit";
+    grecaptcha.reset();
   }
 });
 </script>
