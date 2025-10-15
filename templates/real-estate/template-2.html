@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Estate Landing Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>
   body {
@@ -14,13 +15,12 @@
     color: #333;
   }
 
-  /* HERO SECTION */
+  /* HERO */
   .hero {
     position: relative;
     height: 80vh;
     background: url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-2.png') center center no-repeat;
-    background-size: contain;
-    background-color: #000; /* fallback */
+    background-size: cover;
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -29,16 +29,13 @@
     color: #fff;
     overflow: hidden;
   }
-
   .hero::after {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.45);
+    inset: 0;
+    background: rgba(0,0,0,0.45);
     z-index: 0;
   }
-
   .hero h1 {
     position: relative;
     font-family: 'Playfair Display', serif;
@@ -49,7 +46,7 @@
     text-shadow: 0 3px 6px rgba(0,0,0,0.4);
   }
 
-  /* MAIN CONTENT */
+  /* CONTENT */
   .content {
     display: flex;
     justify-content: space-between;
@@ -57,7 +54,6 @@
     gap: 40px;
     margin: 80px 10%;
   }
-
   .benefits, .insights {
     flex: 1;
     min-width: 340px;
@@ -67,7 +63,6 @@
     box-shadow: 0 4px 25px rgba(0,0,0,0.05);
     backdrop-filter: blur(4px);
   }
-
   .benefits h2, .insights h2 {
     font-family: 'Playfair Display', serif;
     color: #0d3b38;
@@ -86,20 +81,53 @@
     box-shadow: 0 0 25px rgba(0,0,0,0.08);
     text-align: center;
   }
-
   .form-section h2 {
     font-family: 'Playfair Display', serif;
     color: #0d3b38;
     font-size: 1.8rem;
     margin-bottom: 20px;
   }
-
-  .form-container {
+  form {
     max-width: 700px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  input, select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  input:focus, select:focus {
+    border-color: #d4af37;
+    outline: none;
+  }
+  button {
+    background: linear-gradient(135deg, #d4af37, #f5c542);
+    border: none;
+    color: #111;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: linear-gradient(135deg, #f5c542, #ffd75f);
+  }
+  button.loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
   }
 
-  /* FAQ SECTION */
+  /* FAQ */
   .faq {
     margin: 80px 10%;
     background: #ffffff;
@@ -107,7 +135,6 @@
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(0,0,0,0.08);
   }
-
   .faq h2 {
     font-family: 'Playfair Display', serif;
     color: #0d3b38;
@@ -115,23 +142,16 @@
     margin-bottom: 20px;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
-    .content {
-      flex-direction: column;
-    }
-    .hero {
-      height: 60vh;
-      background-size: cover;
-      background-position: center;
-    }
+    .content { flex-direction: column; }
+    .hero { height: 60vh; background-position: center; }
   }
 </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <div class="hero">
     <h1>{{HEADLINE}}</h1>
   </div>
@@ -149,19 +169,82 @@
     </div>
   </div>
 
-  <!-- FORMINATOR FORM -->
+  <!-- FORM -->
   <div class="form-section">
     <h2>Get in Touch</h2>
-    <div class="form-container">
-      {{FORM_HTML}}
-    </div>
+    <form id="leadForm" action="https://hook.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+      <input type="hidden" name="client_id" id="client_id" value="" />
+      <input type="text" name="company" style="display:none !important;" tabindex="-1" autocomplete="off" />
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+\-()\s]{7,}" required>
+
+      <label>I consent to be contacted:</label>
+      <select name="consent" required>
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+
+      <button type="submit" id="submitBtn">Submit</button>
+    </form>
   </div>
 
-  <!-- FAQ SECTION -->
+  <!-- FAQ -->
   <div class="faq">
     <h2>Frequently Asked Questions</h2>
     {{FAQ_HTML}}
   </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Extract client ID from URL: /clients/recXXXXX/index.html
+  const pathParts = window.location.pathname.split("/");
+  const clientIndex = pathParts.indexOf("clients");
+  if (clientIndex !== -1 && pathParts[clientIndex + 1]) {
+    document.getElementById("client_id").value = pathParts[clientIndex + 1];
+  }
+});
+
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  btn.classList.add("loading");
+  btn.innerText = "Submitting...";
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const captchaResponse = grecaptcha.getResponse();
+  if (!captchaResponse) {
+    alert("Please verify that you're not a robot.");
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
+    return;
+  }
+
+  try {
+    const response = await fetch(form.action, { method: "POST", body: formData });
+    const result = await response.json();
+
+    if (result.redirect) {
+      window.open(result.redirect, "_blank");
+    } else {
+      alert("Thank you! We’ll contact you soon.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("There was an issue submitting your request. Please try again.");
+  } finally {
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
+    grecaptcha.reset();
+  }
+});
+</script>
 </body>
 </html>
