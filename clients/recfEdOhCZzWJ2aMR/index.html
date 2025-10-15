@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Real Estate Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #f9f9f9;
+    background: url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE-1.png') no-repeat center center/cover;
+    background-attachment: fixed;
+  }
+  .overlay {
+    background: rgba(0, 0, 0, 0.55);
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 10%;
+    box-sizing: border-box;
+  }
+  .hero {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    font-size: 18px;
+    color: #d1d1d1;
+    margin: 0;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .benefits,
+  .form-section {
+    flex: 1;
+    min-width: 320px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .benefits h2,
+  .faq h2 {
+    font-family: 'Playfair Display', serif;
+    color: #f5c542;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  input,
+  select {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+  }
+  input::placeholder {
+    color: #999;
+  }
+  button {
+    background: linear-gradient(135deg, #d4af37, #f5c542);
+    border: none;
+    color: #111;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: linear-gradient(135deg, #f5c542, #ffd75f);
+  }
+  button.loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .g-recaptcha {
+    display: flex;
+    justify-content: center;
+  }
+  .faq {
+    margin-top: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 12px;
+  }
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+    .hero h1 {
+      font-size: 36px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="overlay">
+    <div class="hero">
+      <h1>Unlock Your Dream Property with Uncle ShopRealEstate</h1>
+      <p>Market Insights</p>
+    </div>
+
+    <div class="content">
+      <div class="benefits">
+        <h2>Key Benefits</h2>
+        add(
+  "<li>";
+  replace(
+    replace(; "\n"; "</li><li>");
+    ",";
+    "</li><li>"
+  );
+  "</li>"
+)
+      </div>
+
+      <div class="form-section">
+        <h2>Enquire Now</h2>
+        <form id="leadForm" action="https://hook.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+          <!-- Hidden Client ID -->
+          <input type="hidden" name="client_id" id="client_id" value="" />
+
+          <!-- Honeypot -->
+          <input type="text" name="company" style="display:none !important;" tabindex="-1" autocomplete="off" />
+
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9+\-()\s]{7,}" required />
+
+          <label style="color:#fff;">I consent to be contacted:</label>
+          <select name="consent" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <!-- reCAPTCHA -->
+          <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+
+          <button type="submit" id="submitBtn">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      replace(
+  replace(
+    replace(; '{"q":"'; '<details><summary>');
+    '","a":"'; '</summary><p>'
+  );
+  '"},'; '</p></details>'
+)
+    </div>
+  </div>
+
+<script>
+// ✅ Extract client ID from URL like /clients/recXXXXX/index.html
+document.addEventListener("DOMContentLoaded", function() {
+  const pathParts = window.location.pathname.split("/");
+  let clientId = "";
+  const clientIndex = pathParts.indexOf("clients");
+  if (clientIndex !== -1 && pathParts[clientIndex + 1]) {
+    clientId = pathParts[clientIndex + 1];
+  }
+  document.getElementById("client_id").value = clientId || "unknown";
+});
+
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  btn.classList.add("loading");
+  btn.innerText = "Submitting...";
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const captchaResponse = grecaptcha.getResponse();
+  if (!captchaResponse) {
+    alert("Please verify that you're not a robot.");
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
+    return;
+  }
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.redirect) {
+      window.open(result.redirect, "_blank");
+    } else {
+      alert("Thank you! We’ll contact you soon.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("There was an issue submitting your request. Please try again.");
+  } finally {
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
+    grecaptcha.reset();
+  }
+});
+</script>
+</body>
+</html>
