@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Real Estate Landing Page | Template 2</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- ✅ Captcha in head -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>
@@ -31,9 +27,9 @@ button:hover{background:#b9942e}
 <div class="section"><h2>Key Benefits</h2><div id="benefits">{{BENEFITS_HTML}}</div></div>
 
 <div class="section">
-<h2>Enquire Now</h2>
-<form id="leadForm" action="https://hook.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
-<input type="hidden" name="client_id" id="client_id"/>
+<h2>Get in Touch</h2>
+<form id="leadForm" action="https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+<input type="hidden" name="client_id" id="client_id">
 <input type="text" name="name" placeholder="Full Name" required>
 <input type="email" name="email" placeholder="Email Address" required>
 <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -47,16 +43,20 @@ button:hover{background:#b9942e}
 <div class="section"><h2>Frequently Asked Questions</h2><div id="faq">{{FAQ_HTML}}</div></div>
 
 <script>
-document.addEventListener("DOMContentLoaded",()=>{const p=location.pathname.split("/"),i=p.indexOf("clients");if(i!==-1)document.getElementById("client_id").value=p[i+1];
-["benefits","faq"].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=el.innerHTML.replace(/add\(|replace\([^)]*\)|["{};]/g,"").replace(/\n/g,"");});});
+document.addEventListener("DOMContentLoaded",()=>{
+ const p=location.pathname.split("/"),i=p.indexOf("clients");
+ if(i!==-1)document.getElementById("client_id").value=p[i+1];
+ const clean=x=>x?x.replace(/add\(|replace\([^)]*\)|["{};]/g,"").replace(/\n+/g," ").replace(/\s{2,}/g," ").trim():"";
+ ["benefits","faq"].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=clean(e.innerHTML);});
+});
 document.getElementById("leadForm").addEventListener("submit",async e=>{
-e.preventDefault();const f=e.target,b=document.getElementById("submitBtn");b.textContent="Submitting…";
-if(!grecaptcha.getResponse()){alert("Please verify captcha");b.textContent="Submit";return;}
-try{const r=await fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json"},
-body:JSON.stringify({name:f.name.value,email:f.email.value,phone:f.phone.value,consent:f.consent.value,client_id:f.client_id.value})});
-if(!r.ok)throw new Error();const j=await r.json();if(j.redirect){window.open(j.redirect,"_blank");alert("Thank you! Your brochure will open shortly.");}
-else alert("Thank you! Your details have been submitted.");f.reset();grecaptcha.reset();}
-catch(err){alert("There was an issue submitting your request.");}b.textContent="Submit";});
+ e.preventDefault();const f=e.target,b=document.getElementById("submitBtn");b.textContent="Submitting…";
+ if(!grecaptcha.getResponse()){alert("Please verify captcha");b.textContent="Submit";return;}
+ try{const r=await fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:f.name.value,email:f.email.value,phone:f.phone.value,consent:f.consent.value,client_id:f.client_id.value})});
+  if(!r.ok)throw new Error();const j=await r.json();if(j.redirect){window.open(j.redirect,"_blank");alert("Thank you! Your brochure will open shortly.");}
+  else alert("Thank you! Your details have been submitted.");f.reset();grecaptcha.reset();}
+ catch(err){alert("There was an issue submitting your request.");}b.textContent="Submit";
+});
 </script>
 </body>
 </html>
