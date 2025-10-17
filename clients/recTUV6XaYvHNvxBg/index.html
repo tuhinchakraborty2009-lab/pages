@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lead Gen | Template 1</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#fafafa;color:#222}
+.hero{position:relative;height:80vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-1.png')center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.hero h1{position:relative;font-family:'Playfair Display',serif;font-size:3rem;z-index:1}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.section h2{font-family:'Playfair Display',serif;color:#0d3b38;border-left:4px solid #d4af37;padding-left:10px;margin-bottom:15px}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem}
+button{background:#d4af37;color:#fff;font-weight:600;cursor:pointer}
+button:hover{background:#b9942e}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px}
+</style>
+</head>
+
+<body>
+<div class="hero"><h1>Unlock Exclusive Real Estate Opportunities Worldwide</h1></div>
+<div class="section"><h2>Key Benefits</h2><div id="benefits">add(
+  "<li>";
+  replace(
+    replace(Access curated, high-value real estate investments., Maximize returns with expert market analysis and insights., Secure your financial future through strategic property ownership.; "\n"; "</li><li>");
+    ",";
+    "</li><li>"
+  );
+  "</li>"
+)</div></div>
+
+<div class="section">
+<h2>Enquire Now</h2>
+<form id="leadForm" action="https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+<input type="hidden" name="client_id" id="client_id">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email Address" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<label>I consent to be contacted:</label>
+<select name="consent" required><option value="">Select</option><option>Yes</option><option>No</option></select>
+<div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+<button type="submit" id="submitBtn">Submit</button>
+</form>
+</div>
+
+<div class="section"><h2>Frequently Asked Questions</h2><div id="faq">replace(
+  replace(
+    replace({"q":"What types of properties do you offer?","a":"We specialize in luxury apartments, villas, and commercial properties in prime locations worldwide."}, {"q":"How do you ensure the quality of investments?","a":"Our expert team conducts thorough due diligence and market analysis to identify high-potential opportunities."}; '{"q":"'; '<details><summary>');
+    '","a":"'; '</summary><p>'
+  );
+  '"},'; '</p></details>'
+)</div></div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const p=location.pathname.split("/"),i=p.indexOf("clients");
+ if(i!==-1)document.getElementById("client_id").value=p[i+1];
+ const clean=x=>x?x.replace(/add\(|replace\([^)]*\)|["{};]/g,"").replace(/\n+/g," ").replace(/\s{2,}/g," ").trim():"";
+ ["benefits","faq"].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=clean(e.innerHTML);});
+});
+document.getElementById("leadForm").addEventListener("submit",async e=>{
+ e.preventDefault();const f=e.target,b=document.getElementById("submitBtn");b.textContent="Submitting…";
+ if(!grecaptcha.getResponse()){alert("Please verify captcha");b.textContent="Submit";return;}
+ try{const r=await fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:f.name.value,email:f.email.value,phone:f.phone.value,consent:f.consent.value,client_id:f.client_id.value})});
+  if(!r.ok)throw new Error();const j=await r.json();if(j.redirect){window.open(j.redirect,"_blank");alert("Thank you! Your brochure will open shortly.");}
+  else alert("Thank you! Your details have been submitted.");f.reset();grecaptcha.reset();}
+ catch(err){alert("There was an issue submitting your request.");}b.textContent="Submit";
+});
+</script>
+</body>
+</html>
