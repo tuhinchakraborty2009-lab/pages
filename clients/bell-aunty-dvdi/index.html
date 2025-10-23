@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unlock Your Dream Home with Bell Aunty</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<style>
+body {margin:0;font-family:'Poppins',sans-serif;background:linear-gradient(to bottom,#faf8f4,#fffef8);color:#333;}
+.hero{position:relative;height:70vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-2.png')center/contain no-repeat;background-color:#000;background-attachment:fixed;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4);}
+.hero h1{position:relative;font-family:'Playfair Display',serif;font-size:3rem;z-index:1;max-width:85%;text-shadow:0 3px 8px rgba(0,0,0,.4);}
+.content{display:flex;flex-wrap:wrap;gap:40px;margin:80px 10%;}
+.card{flex:1;min-width:340px;background:#ffffffcc;padding:30px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,0.05);}
+.card h2{font-family:'Playfair Display',serif;color:#0d3b38;font-size:1.6rem;margin-bottom:20px;border-left:4px solid #d4af37;padding-left:10px;}
+.form-section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,0.08);text-align:center;}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#d4af37;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#b9942e;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+.faq{margin:80px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,0.08);}
+.faq h2{font-family:'Playfair Display',serif;color:#0d3b38;font-size:1.6rem;margin-bottom:20px;}
+@media(max-width:768px){.content{flex-direction:column;}.hero{height:50vh;background-size:cover;}}
+</style>
+</head>
+
+<body>
+  <section class="hero">
+    <h1>Unlock Your Dream Home with Bell Aunty</h1>
+  </section>
+
+  <div class="content">
+    <div class="card">
+      <h2>Key Benefits</h2>
+      <div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Discover exclusive listings and off-market opportunities.</li>
+<li>Navigate the buying or selling process with expert guidance.</li>
+<li>Secure the best possible deal with our negotiation expertise.</li>
+
+</ul>
+</div>
+    </div>
+    <div class="card">
+      <h2>Market Insights</h2>
+      <div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Market Insights</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li><b>Global Property Values</b> — Up 7.3% in 2023<br><i>Despite economic headwinds, prime residential property continues to demonstrate robust growth worldwide.</i></li><li><b>Luxury Market Demand</b> — 40% increase in HNW buyers<br><i>The number of high-net-worth individuals seeking luxury properties has surged, driving demand in key markets.</i></li><li><b>Rental Yields Rising</b> — Average 3.5% ROI<br><i>Strategic property investments are generating attractive rental yields, offering a stable income stream for investors.</i></li>
+</ul>
+</div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h2>Get in Touch</h2>
+    <form id="leadForm" action="https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+      <input type="hidden" name="client_id" id="client_id" />
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <label>I consent to be contacted:</label>
+      <select name="consent" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+      <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+      <button type="submit" id="submitBtn">Submit</button>
+    </form>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> What areas do you specialize in?<br><b>A:</b> We specialize in luxury residential properties in prime locations across the globe, including [mention specific areas].</div><div class='faq-item'><b>Q:</b> How do you ensure I get the best price?<br><b>A:</b> Our expert negotiators leverage market data and industry insights to secure the most favorable terms for our clients.</div></div>
+  </section>
+
+  <script>
+  document.addEventListener("DOMContentLoaded",()=>{const p=location.pathname.split("/"),i=p.indexOf("clients");if(i!==-1)document.getElementById("client_id").value=p[i+1];});
+  </script>
+</body>
+</html>
