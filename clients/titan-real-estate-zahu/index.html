@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prime Commercial Plots in Manesar | Titan Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+body{margin:0;font-family:'Work Sans',sans-serif;background:#F9FAFB;color:#1F2933;}
+.hero{position:relative;height:80vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-5.png')center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4);}
+.hero h1{position:relative;font-size:3rem;z-index:1;text-shadow:0 3px 8px rgba(0,0,0,.5);}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+.section h2{font-family:'Source Sans 3',sans-serif;color:#1F2933;border-left:4px solid #3ED6B8;padding-left:10px;margin-bottom:15px;}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#3ED6B8;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#2eb99b;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="hero"><h1>Secure Your Future in Manesar's Premier Commercial Hub</h1></div>
+<div class="section"><h2>Gain exclusive access to vetted, high-potential commercial plots engineered to maximize your long-term growth and investment returns.</h2></div>
+<div class="section"><h2>Key Benefits</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Unlock exclusive off-market plots with the highest appreciation potential.</li>
+<li>Accelerate your site selection with our data-driven market analysis.</li>
+<li>Navigate complex transactions seamlessly with our dedicated advisory team.</li>
+
+</ul>
+</div></div></div>
+<div class="section"><h2>Market Insights</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Market Insights</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li><b>The Growth Epicenter</b> — 40% Projected Growth<br><i>Manesar's commercial sector is set to expand by 40% by 2028. Investing now secures your position ahead of the curve for maximum capital appreciation.</i></li><li><b>Logistical Supremacy</b> — 22% Lower Logistics Costs<br><i>Proximity to the Delhi-Mumbai Expressway can reduce supply chain costs by up to 22%, directly boosting your operational profitability.</i></li><li><b>Unrivaled Connectivity</b> — 30-Minute IGI Access<br><i>Direct access to IGI Airport within 30 minutes enhances national and international connectivity, crucial for scaling executive operations and logistics.</i></li>
+</ul>
+</div></div></div>
+
+<div class="section">
+<h2>Get in Touch</h2>
+<form id="leadForm">
+  <input type="hidden" name="client_id" id="client_id">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+  <label>I consent to be contacted:</label>
+  <select name="consent" required>
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+  <button type="submit" id="submitBtn">Schedule Your Strategic Consultation</button>
+</form>
+</div>
+
+<div class="section"><h2>Frequently Asked Questions</h2><div><div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> Why should we invest in Manesar right now?<br><b>A:</b> With major infrastructure upgrades nearing completion and a surge in multinational investment, the window for acquiring prime commercial land at optimal valuation is closing. Acting now secures a strategic advantage.</div><div class='faq-item'><b>Q:</b> How are your listings different from public portals?<br><b>A:</b> Over 60% of our portfolio is exclusive and off-market, sourced through our deep-rooted local network. We provide access to pre-vetted, high-yield opportunities that never reach the open market.</div></div></div></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("leadForm");
+  const p = location.pathname.split("/");
+  const i = p.indexOf("clients");
+  if (i !== -1) document.getElementById("client_id").value = p[i + 1];
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("https://hook.eu2.make.com/gkec9ojxrtcfv8cv3di90j4s2n5dgjyq", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      });
+      const intent = "Book a Call / Appointment";
+      if(intent==="Provide-a-free-resource-with-lead-generation"){window.open("https://pub-cdn.apitemplate.io/2025/10/927d374a-3b79-46ed-bb97-f7d990a6ed85.pdf","_blank");}
+      else if(intent==="Sell-product-directly"){setTimeout(()=>{window.location.href="";},1200);}
+      else{alert("✅ Your interest has been registered successfully!");}
+    } catch(err){alert("❌ Error submitting form.");}
+  });
+});
+</script>
+
+</body>
+</html>
