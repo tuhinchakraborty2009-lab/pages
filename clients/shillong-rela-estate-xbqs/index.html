@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shillong Property Guide: Affordable Homes with Breathtaking Views</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+body{margin:0;font-family:'Work Sans',sans-serif;background:#F9FAFB;color:#1F2933;}
+.hero{position:relative;height:70vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE-1.png')center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);}
+.hero h1{position:relative;font-size:2.8rem;z-index:1;text-shadow:0 3px 8px rgba(0,0,0,.5);}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+.section h2{font-family:'Source Sans 3',sans-serif;color:#1F2933;border-left:4px solid #FF6B6B;padding-left:10px;margin-bottom:15px;}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#FF6B6B;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#e85c5c;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="hero"><h1>Discover Shillong's Best-Kept Secret: Affordable Homes, Incredible Views</h1></div>
+<div class="section"><h2>Access our exclusive guide to navigate Shillong's real estate market and secure your dream property with ease.</h2></div>
+<div class="section"><h2>Key Benefits</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Uncover hidden listings for budget-friendly properties with panoramic vistas.</li>
+<li>Navigate the Shillong market confidently with expert insights and local knowledge.</li>
+<li>Secure your ideal home faster by understanding key buying strategies and pitfalls.</li>
+
+</ul>
+</div></div></div>
+<div class="section"><h2>Market Insights</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Market Insights</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li><b>Rising Demand, Stable Prices</b> — Property values in Shillong have seen a steady 7% annual increase over the last five years.<br><i>Act now to capitalize on appreciation while still securing prime locations at competitive prices.</i></li><li><b>View Premium Value</b> — Properties with scenic views command up to 20% higher rental yields in Shillong.<br><i>Invest wisely in properties that offer both personal enjoyment and strong long-term returns.</i></li><li><b>Untapped Potential</b> — Only 15% of Shillong's prime view-facing land is currently developed for residential use.<br><i>Discover exclusive opportunities before they become mainstream and prices escalate.</i></li>
+</ul>
+</div></div></div>
+
+<div class="section">
+<h2>Get in Touch</h2>
+<form id="leadForm">
+  <input type="hidden" name="client_id" id="client_id">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+  <label>I consent to be contacted:</label>
+  <select name="consent" required>
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+  <button type="submit" id="submitBtn">Download Your Free Shillong Property Guide Now</button>
+</form>
+</div>
+
+<div class="section"><h2>Frequently Asked Questions</h2><div><div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> Is this guide suitable for first-time buyers in Shillong?<br><b>A:</b> Absolutely. Our guide breaks down the entire process, from understanding local regulations to identifying the best neighborhoods for your budget and view preferences.</div><div class='faq-item'><b>Q:</b> How current is the information in the guide?<br><b>A:</b> Our team of local experts updates the guide quarterly, ensuring you receive the most accurate and up-to-date market data and property insights available.</div></div></div></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("leadForm");
+  const p = location.pathname.split("/");
+  const i = p.indexOf("clients");
+  if (i !== -1) document.getElementById("client_id").value = p[i + 1];
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    try {
+      await fetch("https://hook.eu2.make.com/gnfmfhicbfeftvo3nrfctv3wson1te3k", {
+        method: "POST",
+        body: fd
+      });
+      const intent = "Provide-a-free-resource-with-lead-generation";
+      if(intent==="Provide-a-free-resource-with-lead-generation"){
+        window.open("https://pub-cdn.apitemplate.io/2025/10/003edc5a-fbdb-4297-b34b-5b14ec2e062c.pdf","_blank");
+      } else if(intent==="Sell-product-directly"){
+        setTimeout(()=>{window.location.href="";},1200);
+      } else {
+        alert("✅ Your interest has been registered successfully!");
+      }
+    } catch(err){alert("❌ Error submitting form.");}
+  });
+});
+</script>
+</body>
+</html>
