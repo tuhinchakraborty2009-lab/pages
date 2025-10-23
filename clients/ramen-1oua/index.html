@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>London's Premier Real Estate Agency | Expert Property Sales & Acquisitions</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+body{margin:0;font-family:'Work Sans',sans-serif;background:#F9FAFB;color:#1F2933;}
+.hero{position:relative;height:70vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Landing-page-RE-1.png')center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);}
+.hero h1{position:relative;font-size:2.8rem;z-index:1;text-shadow:0 3px 8px rgba(0,0,0,.5);}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+.section h2{font-family:'Source Sans 3',sans-serif;color:#1F2933;border-left:4px solid #FF6B6B;padding-left:10px;margin-bottom:15px;}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#FF6B6B;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#e85c5c;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="hero"><h1>Achieve Your London Property Vision with Unrivaled Expertise.</h1></div>
+<div class="section"><h2>Partner with ramen, London's top-tier real estate agency, for exceptional results in buying, selling, or investing.</h2></div>
+<div class="section"><h2>Key Benefits</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Maximize your property value with our strategic market insights and negotiation prowess.</li>
+<li>Access exclusive off-market opportunities before they reach the wider public.</li>
+<li>Experience a seamless, stress-free transaction guided by dedicated property specialists.</li>
+
+</ul>
+</div></div></div>
+<div class="section"><h2>Market Insights</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Market Insights</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li><b>London's Property Appreciation</b> — London property values have risen by an average of 4.5% annually over the last decade.<br><i>Your investment grows significantly with expert guidance in a dynamic market.</i></li><li><b>Competitive Market Edge</b> — Only 15% of London properties achieve their asking price within the first 30 days.<br><i>Our tailored marketing and pricing strategies ensure your property stands out and sells optimally.</i></li><li><b>Buyer Demand Surge</b> — Buyer inquiries for prime London properties increased by 12% in Q1 2024.<br><i>Capitalize on heightened demand with our targeted approach to connect you with serious buyers.</i></li><li><b>Exclusive Network Access</b> — Our private network includes over 500 pre-qualified high-net-worth individuals.<br><i>Gain direct access to an elite pool of buyers and sellers, ensuring discreet and efficient transactions.</i></li>
+</ul>
+</div></div></div>
+
+<div class="section">
+<h2>Get in Touch</h2>
+<form id="leadForm">
+  <input type="hidden" name="client_id" id="client_id">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+  <label>I consent to be contacted:</label>
+  <select name="consent" required>
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+  <button type="submit" id="submitBtn">Book Your Expert Property Consultation</button>
+</form>
+</div>
+
+<div class="section"><h2>Frequently Asked Questions</h2><div><div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> How does ramen ensure I get the best price for my property?<br><b>A:</b> We leverage proprietary market analytics, extensive local expertise, and a robust network to strategically price and market your property, ensuring maximum value realization through skilled negotiation.</div><div class='faq-item'><b>Q:</b> What makes ramen different from other London real estate agencies?<br><b>A:</b> Our distinction lies in our bespoke client-centric approach, exclusive access to off-market properties, and a proven track record of delivering exceptional results for discerning clients who demand the best.</div></div></div></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("leadForm");
+  const p = location.pathname.split("/");
+  const i = p.indexOf("clients");
+  if (i !== -1) document.getElementById("client_id").value = p[i + 1];
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    try {
+      await fetch("https://hook.eu2.make.com/gkec9ojxrtcfv8cv3di90j4s2n5dgjyq", {
+        method: "POST",
+        body: fd
+      });
+      const intent = "Book a Call / Appointment";
+      if(intent==="Provide-a-free-resource-with-lead-generation"){
+        window.open("https://pub-cdn.apitemplate.io/2025/10/1dad44c3-f5de-4a32-822e-86e7a4426cae.pdf","_blank");
+      } else if(intent==="Sell-product-directly"){
+        setTimeout(()=>{window.location.href="";},1200);
+      } else {
+        alert("✅ Your interest has been registered successfully!");
+      }
+    } catch(err){alert("❌ Error submitting form.");}
+  });
+});
+</script>
+</body>
+</html>
