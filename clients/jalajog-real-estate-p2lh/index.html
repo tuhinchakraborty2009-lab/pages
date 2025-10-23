@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mumbai Luxury Real Estate | Free Investment Guide | Jalajog</title>
+<meta name="description" content="Unlock Mumbai's prime real estate market. Download our exclusive guide to find off-market properties and maximize your investment returns with Jalajog." />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<style>
+body{margin:0;font-family:'Source Sans 3',sans-serif;background:linear-gradient(to bottom right,#E5E7EB,#F9FAFB);color:#1F2933;}
+.hero{display:flex;flex-wrap:wrap;}
+.hero-text{flex:1;padding:60px;display:flex;flex-direction:column;justify-content:center;}
+.hero-text h1{font-size:2.5rem;color:#0D3B38;margin-bottom:15px;}
+.hero-text p{color:#6B7280;font-size:1.05rem;}
+.hero-img{flex:1;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-5.png')center/cover no-repeat;min-height:70vh;}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,0.08);}
+.section h2{font-weight:600;color:#0D3B38;border-left:4px solid #3ED6B8;padding-left:10px;margin-bottom:20px;}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#FBBF24;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#e6a913;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+#successMsg,#errorMsg{text-align:center;margin-top:10px;display:none;font-weight:600;}
+#successMsg{color:green;}#errorMsg{color:red;}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Unlock Mumbai's Most Exclusive Off-Market Properties.</h1>
+    <p>Download our proprietary guide to navigate Mumbai's luxury market and secure your legacy asset with data-backed confidence.</p>
+  </div>
+  <div class="hero-img"></div>
+</section>
+
+<section class="section">
+  <h2>Key Benefits</h2>
+  Access hidden gems with our curated list of off-market listings., Maximize your ROI with data-driven price and neighborhood analysis., Navigate complex transactions seamlessly with our expert negotiation strategies.
+</section>
+
+<section class="section">
+  <h2>Get in Touch</h2>
+  <form id="leadForm" action="https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+    <input type="hidden" name="client_id" id="client_id" />
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <label>I consent to be contacted:</label>
+    <select name="consent" required><option value="">Select</option><option>Yes</option><option>No</option></select>
+    <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+    <button type="submit" id="submitBtn">Submit</button>
+    <div id="successMsg">Thank you! We'll be in touch soon.</div>
+    <div id="errorMsg">Submission failed. Please try again.</div>
+  </form>
+</section>
+
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  {"q":"Is this guide just a generic list of properties?","a":"Absolutely not. This is a strategic playbook, curated by our top analysts, focusing on investment potential, neighborhood growth trajectories, and negotiation tactics. It's designed to give you an unfair advantage."}, {"q":"Why is this information free?","a":"We believe in empowering serious investors with unparalleled market intelligence first. Our goal is to build a long-term relationship based on trust and proven results, starting with this high-value resource."}
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const p=location.pathname.split("/");const i=p.indexOf("clients");if(i!==-1)document.getElementById("client_id").value=p[i+1];});
+const form=document.getElementById("leadForm");
+form.addEventListener("submit",async(e)=>{
+e.preventDefault();
+const err=document.getElementById("errorMsg");
+const ok=document.getElementById("successMsg");
+const btn=document.getElementById("submitBtn");
+err.style.display=ok.style.display="none";
+btn.disabled=true;btn.textContent="Processing...";
+try{
+const fd=new FormData(form);
+const res=await fetch("https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6",{method:"POST",body:fd});
+if(!res.ok)throw new Error("Network Error");
+ok.style.display="block";
+const intent="Provide-a-free-resource-with-lead-generation";
+const pdfURL="https://pub-cdn.apitemplate.io/2025/10/a6c14bfc-45b9-469c-9d43-f0a5ae1123eb.pdf";
+const productURL="";
+if(intent==="Provide-a-free-resource-with-lead-generation"&&pdfURL){window.open(pdfURL,"_blank");}
+else if(intent==="Sell-product-directly"&&productURL){setTimeout(()=>{window.location.href=productURL;},1200);}
+}catch(err){console.error(err);document.getElementById("errorMsg").style.display="block";}
+finally{btn.disabled=false;btn.textContent="Submit";}
+});
+</script>
+</body>
+</html>
