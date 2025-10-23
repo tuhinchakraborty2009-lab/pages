@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luxury Real Estate & Homes for Sale in Rynjah | Ray Med</title>
+<meta name="description" content="Discover exclusive listings and luxury homes in Rynjah. Ray Med offers premium properties with unmatched value and investment potential. Secure your dream home today." />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<style>
+body{margin:0;font-family:'Roboto',sans-serif;background:#F9FAFB;color:#1F2933;}
+.hero{display:flex;flex-wrap:wrap;}
+.hero-img{flex:1;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Real-Estate-2.png')center/cover no-repeat;min-height:70vh;}
+.hero-text{flex:1;background:#fff;padding:60px;display:flex;flex-direction:column;justify-content:center;}
+.hero-text h1{font-family:'Rubik',sans-serif;font-size:2.2rem;color:#0D3B38;margin-bottom:15px;}
+.hero-text p{color:#6B7280;font-size:1.05rem;}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+.section h2{font-family:'Rubik',sans-serif;color:#0D3B38;border-left:4px solid #3ED6B8;padding-left:10px;margin-bottom:20px;}
+form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#FF6B6B;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#e24f4f;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+#successMsg,#errorMsg{text-align:center;margin-top:10px;display:none;font-weight:600;}
+#successMsg{color:green;}#errorMsg{color:red;}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-text">
+    <h1>Own a Piece of Rynjah's Most Desirable Real Estate.</h1>
+    <p>Explore our curated portfolio of premium homes and investment properties designed for discerning buyers.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Market Insights</h2>
+  {"title":"Unprecedented Growth","data_point":"Rynjah property values have appreciated by an average of 12% year-over-year.","insight":"Your investment isn't just a home; it's a strategic asset poised for significant financial growth."}, {"title":"High-Demand Market","data_point":"Over 75% of premium listings in Rynjah sold above asking price last quarter.","insight":"Act decisively to secure your place in a competitive market where quality properties are acquired quickly."}, {"title":"Premier Livability","data_point":"Rynjah boasts a 9.2/10 livability score, citing green spaces, security, and amenities.","insight":"Invest in a location that offers not just financial returns, but an unparalleled quality of life."}
+</section>
+
+<section class="section">
+  <h2>Get in Touch</h2>
+  <form id="leadForm" action="https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6" method="POST">
+    <input type="hidden" name="client_id" id="client_id" />
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <label>I consent to be contacted:</label>
+    <select name="consent" required><option value="">Select</option><option>Yes</option><option>No</option></select>
+    <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+    <button type="submit" id="submitBtn">Submit</button>
+    <div id="successMsg">Thank you! We'll be in touch soon.</div>
+    <div id="errorMsg">Submission failed. Please try again.</div>
+  </form>
+</section>
+
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  {"q":"Why should I choose Ray Med over other agencies?","a":"Our hyper-local focus on Rynjah gives us unparalleled market intelligence and access to exclusive, off-market properties. We don't just sell real estate; we secure legacy assets for our clients."}, {"q":"Is now the right time to invest in Rynjah real estate?","a":"All market indicators point to sustained growth. With rising demand and limited premium inventory, the most opportune time to secure a valuable property is right now."}
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const p=location.pathname.split("/");const i=p.indexOf("clients");if(i!==-1)document.getElementById("client_id").value=p[i+1];});
+const form=document.getElementById("leadForm");
+form.addEventListener("submit",async(e)=>{
+e.preventDefault();
+const err=document.getElementById("errorMsg");
+const ok=document.getElementById("successMsg");
+const btn=document.getElementById("submitBtn");
+err.style.display=ok.style.display="none";
+btn.disabled=true;btn.textContent="Processing...";
+try{
+const fd=new FormData(form);
+const res=await fetch("https://hook.eu2.make.com/tj6x1jczn3fk8fv3v4zxpum2757maau6",{method:"POST",body:fd});
+if(!res.ok)throw new Error("Network Error");
+ok.style.display="block";
+const intent="Sell-product-directly";
+const pdfURL="https://pub-cdn.apitemplate.io/2025/10/8709af98-d4d7-4779-9d29-31c85d5c5443.pdf";
+const productURL="https://www.youtube.com/results?search_query=how+to+use+codex+in+chatgpt";
+if(intent==="Provide-a-free-resource-with-lead-generation"&&pdfURL){window.open(pdfURL,"_blank");}
+else if(intent==="Sell-product-directly"&&productURL){setTimeout(()=>{window.location.href=productURL;},1200);}
+}catch(err){console.error(err);document.getElementById("errorMsg").style.display="block";}
+finally{btn.disabled=false;btn.textContent="Submit";}
+});
+</script>
+</body>
+</html>
