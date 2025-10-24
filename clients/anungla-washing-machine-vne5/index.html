@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Anungla: The Future of Clean, Delivered Today</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+body{margin:0;background:#FAFAF8;color:#1E1E1E;font-family:'Work Sans',sans-serif;}
+.hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:60px 10%;background:#fff;}
+.hero-text{flex:1;min-width:45%;}
+.hero-text h1{font-size:2.6rem;}
+.hero-text p{font-size:1.1rem;margin:15px 0 25px;}
+.hero-img{flex:1;min-width:45%;height:70vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/Gemini_Generated_Image_mcwejxmcwejxmcwe.png')center/cover no-repeat;border-radius:12px;}
+form{background:#F9FAFB;padding:30px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;margin-bottom:10px;width:100%;}
+button{background:#4B7BE5;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#3a69d3;}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+.section h2{border-left:4px solid #4B7BE5;padding-left:10px;font-family:'Source Sans 3';margin-bottom:15px;}
+.g-recaptcha{display:flex;justify-content:center;margin:10px 0;}
+@media(max-width:900px){.hero{flex-direction:column;}.hero-img{height:50vh;margin-top:20px;}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Spotless Laundry, Redefined. Introducing Anungla.</h1>
+    <p>Experience the power of spray jet technology for a superior clean, every time.</p>
+    <form id="leadForm">
+      <input type="hidden" name="client_id" id="client_id">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <select name="consent" required><option value="">Receive offers?</option><option>Yes</option><option>No</option></select>
+      <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+      <button type="submit">Buy Now & Get Free Shipping</button>
+    </form>
+  </div>
+  <div class="hero-img"></div>
+</section>
+
+<section class="section"><h2>Product Highlights</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Eliminate Stubborn Stains: Our targeted spray jets penetrate deep into fabric for unmatched cleaning power.</li><li>Conserve Water & Energy: Save up to 40% on water and energy bills with our eco-friendly design.</li><li>Protect Your Clothes: Gentle yet effective cleaning extends the life of your favorite garments.</li>
+</ul>
+</div></div></section>
+<section class="section"><h2>Brand Insights</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Market Insights</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li><b>The Rising Cost of Laundry</b> — The average household spends $500+ annually on laundry-related expenses.<br><i>Anungla's efficiency helps you reclaim those dollars and invest in what matters most.</i></li><li><b>The Demand for Eco-Friendly Appliances</b> — 73% of consumers are willing to pay more for sustainable products.<br><i>Anungla aligns with your values, delivering superior performance with a smaller environmental footprint.</i></li><li><b>Time Savings Matter</b> — Households spend an average of 6 hours per week on laundry.<br><i>Anungla's faster cycles give you back valuable time to focus on what you love.</i></li>
+</ul>
+</div></div></section>
+<section class="section"><h2>FAQs</h2><div><div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> Is Anungla suitable for delicate fabrics?<br><b>A:</b> Yes! Anungla features a delicate cycle with optimized spray jet intensity, ensuring gentle care for your most cherished garments.</div><div class='faq-item'><b>Q:</b> What is the warranty on the Anungla washing machine?<br><b>A:</b> Anungla comes with a comprehensive 2-year warranty covering parts and labor, giving you peace of mind.</div></div></div></section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const f=document.getElementById("leadForm");const p=location.pathname.split("/"),i=p.indexOf("clients");
+  if(i!==-1)document.getElementById("client_id").value=p[i+1];
+  f.addEventListener("submit",async e=>{
+    e.preventDefault();const fd=new FormData(f);
+    try{
+      await fetch("https://hook.eu2.make.com/gnfmfhicbfeftvo3nrfctv3wson1te3k",{method:"POST",body:fd});
+      const intent="Sell-product-directly";
+      if(intent==="Provide-a-free-resource-with-lead-generation")window.open("https://pub-cdn.apitemplate.io/2025/10/8c05fff3-78ca-4bc2-b247-6a6fdc38d8dc.pdf","_blank");
+      else if(intent==="Sell-product-directly")setTimeout(()=>{window.location.href="https://www.amazon.in/Eureka-Forbes-Pressure-Washer-110/dp/B08BQ5LDHW";},1200);
+      else alert("✅ Registered successfully!");
+    }catch{alert("❌ Submission error.");}
+  });
+});
+</script>
+</body>
+</html>
