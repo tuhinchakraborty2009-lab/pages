@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Leadership Coaching: Unlock Your Bay Area Potential</title>
+<meta name="description" content="Elevate your leadership in the Bay Area. Book a free consultation and discover how our proven coaching strategies can transform your team and results.">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+body{margin:0;background:#FAFAF8;color:#1F2933;font-family:'Work Sans',sans-serif;}
+.hero{display:flex;flex-wrap:wrap;min-height:90vh;}
+.hero-img{flex:1;min-width:50%;background:url('https://funnelmint.org/wp-content/uploads/2025/10/an_abstract_visualization_of_personal_growth-_a_person_stepping_onto_a_staircase_made_of_floating_m_l7230d6d864kdl4e5nm8_1.png')center/cover no-repeat;}
+.hero-text{flex:1;min-width:50%;display:flex;flex-direction:column;justify-content:center;padding:60px;background:#fff;}
+.hero-text h1{font-size:2.6rem;margin-bottom:10px;}
+.hero-text p{font-size:1.1rem;margin-bottom:25px;}
+.hero-text .cta{background:#14B8A6;color:#fff;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:600;}
+.hero-text .cta:hover{background:#119685;}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+.section h2{border-left:4px solid #14B8A6;padding-left:10px;font-family:'Source Sans 3';margin-bottom:15px;}
+form{display:flex;flex-direction:column;gap:15px;max-width:480px;margin:auto;}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;}
+button{background:#14B8A6;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#119685;}
+.g-recaptcha{display:flex;justify-content:center;margin-top:10px;}
+@media(max-width:900px){.hero{flex-direction:column;}.hero-img{height:50vh;}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-text">
+    <h1>Transform Your Leadership, Transform Your Results</h1>
+    <p>Elevate your leadership skills and drive unprecedented growth with our tailored coaching programs.</p>
+    <a href="#leadForm" class="cta">Book Your Free Leadership Consultation</a>
+  </div>
+</section>
+
+<section class="section"><h2>Program Benefits</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Unlock peak performance and inspire your team to achieve extraordinary results.</li><li>Cultivate a resilient leadership style that thrives in the dynamic Bay Area environment.</li><li>Master effective communication and decision-making to navigate complex challenges with confidence.</li>
+</ul>
+</div></div></section>
+
+
+<section class="section">
+<h2>Book Discovery Call</h2>
+<form id="leadForm">
+  <input type="hidden" name="client_id" id="client_id">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+  <select name="consent" required><option value="">Receive updates?</option><option>Yes</option><option>No</option></select>
+  <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+  <button type="submit">Book Your Free Leadership Consultation</button>
+</form>
+</section>
+
+<section class="section"><h2>FAQs</h2><div><div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> How is your coaching different from other leadership programs?<br><b>A:</b> We provide personalized, data-driven coaching tailored to your specific challenges and goals, ensuring measurable results and lasting impact.</div><div class='faq-item'><b>Q:</b> What kind of time commitment is required for the coaching program?<br><b>A:</b> Our flexible programs are designed to fit your busy schedule, with sessions typically lasting 60-90 minutes per week.</div></div></div></section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const f=document.getElementById("leadForm");
+ const p=location.pathname.split("/"),i=p.indexOf("clients");
+ if(i!==-1)document.getElementById("client_id").value=p[i+1];
+ f.addEventListener("submit",async e=>{
+   e.preventDefault();const fd=new FormData(f);
+   try{
+     await fetch("https://hook.eu2.make.com/gnfmfhicbfeftvo3nrfctv3wson1te3k",{method:"POST",body:fd});
+     const intent="Book a Call / Appointment";
+     if(intent==="Provide-a-free-resource-with-lead-generation")window.open("https://pub-cdn.apitemplate.io/2025/11/019fa432-382e-40f3-9acc-6e33c739604e.pdf","_blank");
+     else if(intent==="Sell-product-directly")setTimeout(()=>{window.location.href="";},1200);
+     else alert("✅ Registered successfully!");
+   }catch{alert("❌ Submission error.");}
+ });
+});
+</script>
+</body>
+</html>
