@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Axiom: AI Design Software for German SaaS Startups</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+body{margin:0;font-family:'Work Sans',sans-serif;background:#F9FAFB;color:#1F2937;}
+.hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:60px 10%;background:#fff;}
+.hero-text{flex:1;min-width:45%;}
+.hero-text h1{font-size:2.5rem;color:#1F2937;}
+.hero-text p{font-size:1.1rem;margin:15px 0 25px;}
+.hero-img{flex:1;min-width:45%;height:70vh;background:url('https://funnelmint.org/wp-content/uploads/2025/10/ChatGPTImageOct22202501_06_47P.jpeg')center/cover no-repeat;border-radius:12px;}
+form{background:#F9FAFB;padding:30px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+input,select,button{padding:12px;border:1px solid #ccc;border-radius:6px;font-size:1rem;margin-bottom:10px;width:100%;}
+button{background:#14B8A6;color:#fff;font-weight:600;cursor:pointer;transition:.3s;}
+button:hover{background:#109485;}
+.section{margin:60px 10%;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 25px rgba(0,0,0,.08);}
+.section h2{border-left:4px solid #14B8A6;padding-left:10px;font-family:'Source Sans 3';margin-bottom:15px;}
+.g-recaptcha{display:flex;justify-content:center;margin:10px 0;}
+@media(max-width:900px){.hero{flex-direction:column;}.hero-img{height:50vh;margin-top:20px;}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Unlock AI-Powered Design. Built for German SaaS.</h1>
+    <p>Experience the future of design with Axiom, tailored for German SaaS startups and indie developers.</p>
+    <form id="leadForm">
+      <input type="hidden" name="client_id" id="client_id">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Work Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <select name="consent" required><option value="">Allow updates?</option><option>Yes</option><option>No</option></select>
+      <div class="g-recaptcha" data-sitekey="6LflCOorAAAAAObIcprWup0PUyW2ZLwABg2Hpk7J"></div>
+      <button type="submit">Join the Waitlist</button>
+    </form>
+  </div>
+  <div class="hero-img"></div>
+</section>
+
+<section class="section"><h2>Platform Benefits</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Key Benefits</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li>Accelerate design workflows with intelligent AI assistance.</li>
+<li>Seamlessly integrate with your existing German language tools.</li>
+<li>Gain a competitive edge with cutting-edge design capabilities.</li>
+
+</ul>
+</div></div></section>
+<section class="section"><h2>Growth Insights</h2><div><div style='margin-top:20px; font-family:Arial, sans-serif;'>
+<h3 style='color:#333; font-size:18px; margin-bottom:10px;'>Market Insights</h3>
+<ul style='margin-left:20px; padding:0; list-style-type:disc;'>
+<li><b>Design Bottleneck</b> — SaaS companies spend 30% of their time on design-related tasks.<br><i>Axiom reduces design time, freeing up resources for core development.</i></li><li><b>AI Adoption Surge</b> — AI adoption in software development is projected to grow by 40% annually.<br><i>Stay ahead of the curve by leveraging AI for design innovation.</i></li><li><b>German Market Growth</b> — The German SaaS market is expected to reach €15 billion by 2025.<br><i>Axiom is uniquely positioned to support the growth of German SaaS businesses.</i></li>
+</ul>
+</div></div></section>
+<section class="section"><h2>FAQs</h2><div><div style='margin-top:15px; padding:10px 0; font-family:Arial, sans-serif; line-height:1.6;'><div class='faq-item'><b>Q:</b> Is Axiom available in German?<br><b>A:</b> Yes, Axiom offers full German language support and integrates seamlessly with German tools.</div><div class='faq-item'><b>Q:</b> How does Axiom's AI improve my design workflow?<br><b>A:</b> Axiom's AI automates repetitive tasks, suggests design improvements, and generates creative ideas, saving you time and resources.</div></div></div></section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const form=document.getElementById("leadForm");
+  const p=location.pathname.split("/");const i=p.indexOf("clients");
+  if(i!==-1)document.getElementById("client_id").value=p[i+1];
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();const fd=new FormData(form);
+    try{
+      await fetch("https://hook.eu2.make.com/gnfmfhicbfeftvo3nrfctv3wson1te3k",{method:"POST",body:fd});
+      const intent="Generate Leads / Join Waitlist";
+      if(intent==="Provide-a-free-resource-with-lead-generation"){window.open("https://pub-cdn.apitemplate.io/2025/11/58b9bb88-25cb-4e39-bd63-1d67559e7e0d.pdf","_blank");}
+      else if(intent==="Sell-product-directly"){setTimeout(()=>{window.location.href="";},1200);}
+      else{alert("✅ Registered successfully!");}
+    }catch(err){alert("❌ Submission error.");}
+  });
+});
+</script>
+</body>
+</html>
