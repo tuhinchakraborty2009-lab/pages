@@ -1,14 +1,71 @@
+```json
 {
-  "meta": {},
-  "gates": {},
-  "ui": {},
-  "design": {},
-  "content": {},
-  "media": {},
-  "products": {},
-  "behavior": {},
-  "analytics": {},
-  "evolution": {},
-  "integrations": {},
-  "deployment": {}
+  "meta": {
+    "business_name": "Bombay Dyeing",
+    "industry": "cloth wash",
+    "primary_goal": "e-commerce"
+  },
+  "gates": {
+    "authentication": {
+      "user_accounts": true,
+      "oauth_integration": false
+    },
+    "authorization": {
+      "role_based_access": ["admin", "customer"]
+    }
+  },
+  "vertical_seed": {
+    "industry_biases": ["sustainability", "efficiency"],
+    "goal_tendencies": ["sales_conversion", "customer_retentiveness"],
+    "customer_engagement": "high"
+  },
+  "ui": {
+    "navigation": ["home", "products", "cart", "checkout", "contact"],
+    "interaction": ["click", "hover", "swipe"],
+    "responsive_design": true
+  },
+  "design": {
+    "typography": {"style": "modern", "readability": "high"},
+    "color_palette": {"primary": "eco-tone", "accent": "warm"},
+    "layout": "fluid",
+    "imagery_style": "minimalistic"
+  },
+  "content": {
+    "pages": ["home", "product_listing", "product_detail", "shopping_cart", "checkout", "about_us", "contact_us"],
+    "dynamic_content": ["featured_products", "seasonal_offers"]
+  },
+  "media": {
+    "images": {
+      "generation_style": "algorithmic",
+      "uniqueness_seed": "textile_texture_pattern"
+    },
+    "icons": {
+      "style": "line_art",
+      "uniqueness_seed": "wash_cycle_symbols"
+    }
+  },
+  "behavior": {
+    "agents": [
+      {
+        "name": "PurchaseAgent",
+        "goal": "facilitating purchases",
+        "tools": ["cart_management", "checkout_process"]
+      },
+      {
+        "name": "RecommendationAgent",
+        "goal": "product recommendations",
+        "tools": ["browsing_history_analysis", "trending_products_analysis"]
+      }
+    ]
+  },
+  "analytics": {
+    "track": ["user_engagement", "sales_funnel", "product_views"],
+    "optimize": ["conversion_rate", "ad_performance"]
+  },
+  "deployment": {
+    "hosting": "cloud",
+    "scaling": "auto",
+    "monitoring": ["uptime", "load_time"]
+  }
 }
+```
