@@ -3,83 +3,124 @@
   "meta": {
     "business_name": "gomechanic",
     "industry": "auto spare parts",
-    "primary_goal": "demonstrate the superiority of spare parts"
+    "primary_goal": "showcase the best auto spare parts"
   },
   "gates": {
     "authentication": false,
-    "authorization": false,
-    "encryption": true
+    "authorization": false
   },
   "vertical_seed": {
-    "biases": ["quality", "durability", "innovation"],
-    "constraints": ["no generic visuals", "unique content"],
-    "tendencies": ["showcase of spare parts", "interactive displays"]
+    "biases": ["quality", "variety"],
+    "tendencies": ["detailed product listings", "user reviews"],
+    "constraints": ["auto sector trends"]
   },
   "ui": {
     "navigation": {
-      "type": "dynamic",
-      "style": "integrated with product showcase"
+      "type": "global",
+      "pages": ["home", "about", "products", "content_hub", "contact"]
     },
-    "structure": {
-      "home": "introduces brand uniqueness and products",
-      "catalog": "interactive parts display with filters",
-      "contact": "dynamic form for inquiries"
-    }
+    "pages": [
+      {
+        "id": "home",
+        "purpose": "overview and primary value proposition",
+        "primary_sections": ["hero", "product_highlights", "customer_testimonials", "primary_cta"]
+      },
+      {
+        "id": "about",
+        "purpose": "credibility and mission",
+        "primary_sections": ["company_history", "mission_statement", "team_introduction"]
+      },
+      {
+        "id": "products",
+        "purpose": "detailed offerings",
+        "primary_sections": ["product_catalog", "product_details", "purchase_options"]
+      },
+      {
+        "id": "content_hub",
+        "purpose": "informative resources",
+        "primary_sections": ["industry_articles", "blog_posts", "guides"]
+      },
+      {
+        "id": "contact",
+        "purpose": "conversion and trust",
+        "primary_sections": ["contact_form", "location_map", "customer_support_info"]
+      }
+    ]
   },
   "design": {
-    "theme": {
-      "primary_feel": "modern precision",
-      "secondary_feel": "technical excellence"
+    "theme": "modern and dynamic",
+    "typography": "clean and readable",
+    "color_scheme": {
+      "primary": "automotive blue",
+      "secondary": "gear gray",
+      "accent": "vibrant orange"
     },
-    "typography": {
-      "main": "bold and sleek",
-      "secondary": "clear and readable"
-    },
-    "color_palette": {
-      "primary": "inferred from brand identity",
-      "secondary": "supportive and neutral"
-    }
+    "layout_tokens": ["grid", "flexible spacing"]
   },
   "content": {
-    "home_message": "Highlighting unmatched spare parts quality",
-    "catalog_description": "Interactive selection of top-quality parts",
-    "contact_prompt": "Reach out for superior solutions"
+    "home": {
+      "hero": "Welcome to gomechanic - The Best Spare Parts",
+      "product_highlights": ["best-selling parts", "new arrivals"],
+      "customer_testimonials": ["Jane Doe - 'Reliable service'", "John Smith - 'Quality parts'"],
+      "primary_cta": "Explore Our Products"
+    },
+    "about": {
+      "company_history": "Founded in 2010 with a passion for quality.",
+      "mission_statement": "To provide the best auto spare parts.",
+      "team_introduction": ["Founder - Alex Johnson", "CTO - Emily Zhang"]
+    },
+    "products": {
+      "product_catalog": "Extensive range of high-quality parts",
+      "product_details": "Detailed specifications and customer reviews",
+      "purchase_options": "Online purchase and in-store pickup"
+    },
+    "content_hub": {
+      "industry_articles": ["Latest Trends in Automotive Parts", "How to Choose Your Parts"],
+      "blog_posts": ["Maintenance Tips", "DIY Spare Part Replacement"],
+      "guides": ["Beginner's Guide to Car Parts"]
+    },
+    "contact": {
+      "contact_form": "Get in touch with us for your queries",
+      "location_map": "Find us on the map",
+      "customer_support_info": "24/7 support available"
+    }
   },
   "media": {
     "visuals": {
-      "style": "unique, brand-specific",
-      "generation": "algorithmic with uniqueness seed"
+      "style": "high resolution and branded",
+      "uniqueness_seed": 123456789
     },
-    "logos_icons": {
-      "intent": "brand reinforcing",
-      "uniqueness": "high"
+    "logos": {
+      "intent": "brand identity",
+      "uniqueness_seed": 987654321
+    },
+    "icons": {
+      "intent": "user interface enhancement",
+      "uniqueness_seed": 192837465
     }
   },
   "behavior": {
     "agents": [
       {
-        "name": "product_recommender",
-        "goal": "suggest parts tailored to user needs",
-        "tools": ["user preferences", "catalog data"]
+        "name": "product_display_agent",
+        "goals": ["showcase products", "highlight quality"],
+        "tools": ["dynamic galleries", "filters"]
       },
       {
-        "name": "interactive_guide",
-        "goal": "enhance user navigation",
-        "tools": ["dynamic content adaptation", "behavioral insights"]
+        "name": "customer_interaction_agent",
+        "goals": ["facilitate inquiries", "capture leads"],
+        "tools": ["contact form", "live chat"]
       }
     ]
   },
   "analytics": {
-    "focus": ["user interaction", "conversion rates"],
-    "tools": ["heatmaps", "engagement trackers"]
+    "tracking": ["user engagement", "page performance"],
+    "goals": ["optimize product discovery", "improve user experience"]
   },
   "deployment": {
-    "environment": "cloud optimized",
-    "scalability": "supports growth and peak loads",
-    "updates": {
-      "method": "continuous integration",
-      "frequency": "bi-weekly"
-    }
+    "environment": "cloud-based",
+    "scalability": "high future content support",
+    "maintenance": "regular updates and optimizations"
   }
 }
 ```
