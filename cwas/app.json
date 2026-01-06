@@ -3,69 +3,92 @@
   "meta": {
     "business_name": "Bombay Dyeing",
     "industry": "cloth wash",
-    "primary_goal": "e-commerce"
+    "primary_goal": "ecommerce",
+    "expectations": {
+      "future_evolution": true,
+      "interactive": true,
+      "unique_media": true
+    }
   },
   "gates": {
-    "authentication": {
-      "user_accounts": true,
-      "oauth_integration": false
+    "user_authentication": {
+      "required": true,
+      "methods": ["email", "social_login"]
     },
-    "authorization": {
-      "role_based_access": ["admin", "customer"]
+    "checkout_security": {
+      "ssl": true,
+      "payment_methods": ["credit_card", "paypal", "net_banking"]
     }
   },
   "vertical_seed": {
-    "industry_biases": ["sustainability", "efficiency"],
-    "goal_tendencies": ["sales_conversion", "customer_retentiveness"],
-    "customer_engagement": "high"
+    "bias": "consumer_good",
+    "constraints": ["high_quality", "eco_friendly"],
+    "tendencies": ["subscription_options", "bulk_purchase_discounts"]
   },
   "ui": {
-    "navigation": ["home", "products", "cart", "checkout", "contact"],
-    "interaction": ["click", "hover", "swipe"],
-    "responsive_design": true
+    "main_navigation": ["home", "shop", "about", "contact"],
+    "product_display": {
+      "grid_view": true,
+      "filters": ["brand", "price", "fabric_type"]
+    },
+    "user_profile": {
+      "order_history": true,
+      "wishlist": true
+    }
   },
   "design": {
-    "typography": {"style": "modern", "readability": "high"},
-    "color_palette": {"primary": "eco-tone", "accent": "warm"},
-    "layout": "fluid",
-    "imagery_style": "minimalistic"
+    "theme": {
+      "tone": "vibrant",
+      "style": "modern",
+      "layout": "adaptive"
+    },
+    "typography": {
+      "headline": "bold",
+      "body": "readable"
+    }
   },
   "content": {
-    "pages": ["home", "product_listing", "product_detail", "shopping_cart", "checkout", "about_us", "contact_us"],
-    "dynamic_content": ["featured_products", "seasonal_offers"]
+    "product_descriptions": "informative and concise",
+    "customer_testimonials": "highlight satisfaction"
   },
   "media": {
     "images": {
-      "generation_style": "algorithmic",
-      "uniqueness_seed": "textile_texture_pattern"
+      "style": "high_contrast",
+      "uniqueness_seed": "cloth_texture_diversity"
     },
-    "icons": {
-      "style": "line_art",
-      "uniqueness_seed": "wash_cycle_symbols"
+    "videos": {
+      "style": "instructional",
+      "duration": "short",
+      "uniqueness_seed": "washing_tips"
     }
   },
   "behavior": {
     "agents": [
       {
-        "name": "PurchaseAgent",
-        "goal": "facilitating purchases",
-        "tools": ["cart_management", "checkout_process"]
+        "name": "shopping_assistant",
+        "goal": "assist_with_product_selection",
+        "tools": ["AI_recommendation", "chat_support"]
       },
       {
-        "name": "RecommendationAgent",
-        "goal": "product recommendations",
-        "tools": ["browsing_history_analysis", "trending_products_analysis"]
+        "name": "customer_service",
+        "goal": "resolve_inquiries",
+        "tools": ["live_chat", "support_tickets"]
       }
     ]
   },
   "analytics": {
-    "track": ["user_engagement", "sales_funnel", "product_views"],
-    "optimize": ["conversion_rate", "ad_performance"]
+    "user_tracking": {
+      "behavior_analysis": true,
+      "conversion_goals": ["add_to_cart", "purchase_completion"]
+    },
+    "feedback_collection": {
+      "methods": ["post-purchase_surveys", "on-site_reviews"]
+    }
   },
   "deployment": {
-    "hosting": "cloud",
-    "scaling": "auto",
-    "monitoring": ["uptime", "load_time"]
+    "cloud_provider": "platform_agnostic",
+    "scaling": "auto_scaling_enabled",
+    "geographic_targets": ["global"]
   }
 }
 ```
